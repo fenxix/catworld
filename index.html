@@ -93,7 +93,7 @@ html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;touch-action
 #day{font-size:13px;font-weight:bold;margin-bottom:4px;text-align:center}
 .bar{box-sizing:border-box;height:18px;margin-bottom:4px;border-radius:9px;background:#3b2c20;border:2px solid #2a1d13;box-shadow:inset 0 2px 0 rgba(0,0,0,.35)}
 .bar i{border-radius:7px;box-shadow:inset 0 3px 0 rgba(255,255,255,.35)}.bar u{left:8px;line-height:14px;font-size:10px;font-weight:bold}
-#bh{background:linear-gradient(#ff6b7d,#d02a40)}#bf{background:linear-gradient(#ffc36a,#e08a1f)}#be{background:linear-gradient(#6cc4ff,#2f82d6)}
+#bh{background:linear-gradient(#ff6b7d,#d02a40)}#bf{background:linear-gradient(#ffc36a,#e08a1f)}#be{background:linear-gradient(#6cc4ff,#2f82d6)}#bc{background:linear-gradient(#e3f6ff,#5ab4ee)}
 #inv{right:14px;top:10px;gap:2px;padding:4px 6px;background:linear-gradient(#c58a4a,#a8703a);border:3px solid #4d2f19;border-radius:12px;box-shadow:0 3px 0 #2a1d13,inset 0 0 0 2px #e0a866;font-weight:bold;text-shadow:0 1px 0 #4d2f19}
 #inv span{background:none;padding:0 6px;border-radius:0}
 #root #act,#root #run,#root #eat,#root #jump{background:radial-gradient(circle at 50% 30%,#e0a866,#a8703a 70%);border:4px solid #4d2f19;box-shadow:0 5px 0 #2a1d13,inset 0 0 0 2px #e8bf82;color:#fff;font-weight:bold;text-shadow:0 2px 0 #4d2f19;-webkit-tap-highlight-color:transparent;transition:transform .08s}
@@ -159,7 +159,7 @@ html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;touch-action
 <div id="mhelp" class="md" hidden><div class="mp"><div class="mh">Как играть</div><button class="mx">×</button><div class="ht">Движение — джойстик или WASD<br>«Действие» (E) — рубить, добывать, ставить постройки<br>Бег — Shift или кнопка «Бег», «Съесть» — F<br>Прыжок — Пробел или кнопка «Прыжок»: через слизней и узкую воду (тратит энергию)<br>«Сумка» — инвентарь, крафт и строительство<br>Ночью выходят слизни: стройте дом и спите в кровати<br>Установка: Android — кнопка ⤓ вверху, iPhone — «Поделиться» → «На экран Домой»</div></div></div></div><div id="kb" hidden></div>
 <div id="hud"><b>CAT WORLD</b><div>Этап 5 · Строительство · WASD / джойстик · E — действие · Пробел — прыжок · F — еда · I — сумка</div><div id="wc"></div></div>
 <div id="joy"><div id="knob"></div></div>
-<div id='bars'><div id='day'></div><div class='bar'><i id='bh'></i><u>Здоровье</u></div><div class='bar'><i id='bf'></i><u>Сытость</u></div><div class='bar'><i id='be'></i><u>Энергия</u></div></div><div id='qb'></div><button id='bagbtn' class='sq'><svg viewBox='0 0 24 24'><path d='M7 9a5 5 0 0110 0' fill='none' stroke='#ffe7b0' stroke-width='1.8'/><rect x='5' y='9' width='14' height='12' rx='3' fill='#c8955a' stroke='#6b4423' stroke-width='1.8'/><rect x='8' y='14' width='8' height='5' rx='1.5' fill='#8a5a30' stroke='#4d2f19' stroke-width='1.2'/></svg></button><button id='demobtn' class='sq'><svg viewBox='0 0 24 24' fill='none' stroke='#fff3df' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 19L13 11'/><path d='M10 5l9 9-3 3-9-9z' fill='#b9c0c6' stroke='#fff3df'/></svg></button><div id='panel' hidden><div class='pc'><div class='ph'><span id='ptitle'>Сумка и крафт</span><button id='pclose'>×</button></div><div class='pw'><div><div id='grid'></div><div id='acts'><button id='bu'>Взять / съесть</button><button id='bs'>Разделить</button><button id='bm'>Собрать</button><button id='bd'>Выбросить 1</button><button id='bda'>Выбросить всё</button><button id='bc' style='display:none'>В сундук</button></div></div><div id='craft'></div></div><div id='info'></div></div></div><div id="eat">Съесть</div><div id="jump">Прыжок</div><div id="act">Действие</div><div id="run">Бег</div><div id="inv"></div><button id="exitbtn" class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="#fff3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h5v16h-5"/><path d="M4 12h10M8 8l-4 4 4 4"/></svg></button><button id="chatbtn" class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="#fff3df" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H10l-5 4v-4H4z"/></svg></button><div id="clog"></div><button id="mutebtn" class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="#fff3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="mwav" d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg></button><div id="boss" hidden><i id="bossi"></i><u>Король слизней</u></div><div id="cbox" hidden><input id="cin" maxlength="80" placeholder="Сообщение"><button id="csend">→</button></div></div>
+<div id='bars'><div id='day'></div><div class='bar'><i id='bh'></i><u>Здоровье</u></div><div class='bar'><i id='bf'></i><u>Сытость</u></div><div class='bar'><i id='be'></i><u>Энергия</u></div><div class='bar' id='bcw' style='display:none'><i id='bc'></i><u>Холод</u></div></div><div id='qb'></div><button id='bagbtn' class='sq'><svg viewBox='0 0 24 24'><path d='M7 9a5 5 0 0110 0' fill='none' stroke='#ffe7b0' stroke-width='1.8'/><rect x='5' y='9' width='14' height='12' rx='3' fill='#c8955a' stroke='#6b4423' stroke-width='1.8'/><rect x='8' y='14' width='8' height='5' rx='1.5' fill='#8a5a30' stroke='#4d2f19' stroke-width='1.2'/></svg></button><button id='demobtn' class='sq'><svg viewBox='0 0 24 24' fill='none' stroke='#fff3df' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 19L13 11'/><path d='M10 5l9 9-3 3-9-9z' fill='#b9c0c6' stroke='#fff3df'/></svg></button><div id='panel' hidden><div class='pc'><div class='ph'><span id='ptitle'>Сумка и крафт</span><button id='pclose'>×</button></div><div class='pw'><div><div id='grid'></div><div id='acts'><button id='bu'>Взять / съесть</button><button id='bs'>Разделить</button><button id='bm'>Собрать</button><button id='bd'>Выбросить 1</button><button id='bda'>Выбросить всё</button><button id='bc' style='display:none'>В сундук</button></div></div><div id='craft'></div></div><div id='info'></div></div></div><div id="eat">Съесть</div><div id="jump">Прыжок</div><div id="act">Действие</div><div id="run">Бег</div><div id="inv"></div><button id="exitbtn" class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="#fff3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h5v16h-5"/><path d="M4 12h10M8 8l-4 4 4 4"/></svg></button><button id="chatbtn" class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="#fff3df" stroke-width="2" stroke-linejoin="round"><path d="M4 5h16v11H10l-5 4v-4H4z"/></svg></button><div id="clog"></div><button id="mutebtn" class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="#fff3df" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="mwav" d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg></button><div id="boss" hidden><i id="bossi"></i><u>Король слизней</u></div><div id="cbox" hidden><input id="cin" maxlength="80" placeholder="Сообщение"><button id="csend">→</button></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
 <script>
@@ -260,7 +260,7 @@ function fit(){const iw=innerWidth,ih=innerHeight,rot=ih>iw;
  else{root.style.width=iw+'px';root.style.height=ih+'px';root.style.transform='none'}
  const W=rot?ih:iw,Hh=rot?iw:ih;root.style.setProperty('--vw',W/100+'px');root.style.setProperty('--vh',Hh/100+'px');document.querySelectorAll('#cin,#mnick,#mcode,#sname').forEach(i=>rot?i.setAttribute('inputmode','none'):i.removeAttribute('inputmode'));return {w:W,h:Hh}}
 const TOUCH=matchMedia('(pointer:coarse)').matches||/Android|iPhone|iPad|Mobile/i.test(navigator.userAgent);root.classList.toggle('desk',!TOUCH);
-const st={jx:0,jy:0,run:false,act:false,jump:0},bag={wood:0,stone:0,berry:0,grass:0,gel:0},vit={hp:100,hun:100,en:100},DAYMS=240000;
+const st={jx:0,jy:0,run:false,act:false,jump:0},bag={wood:0,stone:0,berry:0,grass:0,gel:0},vit={hp:100,hun:100,en:100,cold:0},DAYMS=240000;
 (function ui(){
  const joy=document.getElementById('joy'),knob=document.getElementById('knob'),R=46;let id=null;
  const move=e=>{const b=joy.getBoundingClientRect();const sx=e.clientX-(b.left+b.width/2),sy=e.clientY-(b.top+b.height/2),rot=root.classList.contains('rot');let dx=rot?sy:sx,dy=rot?-sx:sy;const l=Math.hypot(dx,dy);if(l>R){dx*=R/l;dy*=R/l}
@@ -362,7 +362,7 @@ Object.assign(ICON,{
  wool:S(32,32,`<g fill='#fffaf0' stroke='#a89a8a' stroke-width='2'><circle cx='10' cy='19' r='7'/><circle cx='22' cy='19' r='7'/><circle cx='16' cy='11' r='8'/><circle cx='16' cy='22' r='7'/></g><ellipse cx='16' cy='18' rx='9' ry='7' fill='#fffaf0'/><path d='M11 9Q14 6 19 8' stroke='#e6dccb' stroke-width='2.2' fill='none' stroke-linecap='round'/>`),
  treat:S(32,32,`<rect x='5' y='10' width='22' height='14' rx='6' fill='#d9a05a' stroke='#7a4a1c' stroke-width='2.5'/><g fill='#7a4a1c'><circle cx='11' cy='17' r='1.6'/><circle cx='16' cy='14' r='1.6'/><circle cx='21' cy='18' r='1.6'/></g><path d='M9 13.5Q12 11.5 15 12.5' stroke='#f0c88a' stroke-width='2' fill='none' stroke-linecap='round'/>`)
 });
-function bars(clock,night){const g=i=>document.getElementById(i);g('bh').style.width=Math.max(0,vit.hp)+'%';g('bf').style.width=vit.hun+'%';g('be').style.width=vit.en+'%';g('day').textContent=(night?'Ночь ':'День ')+(Math.floor(clock/DAYMS)+1)+(window.SC&&SC.bn?' · '+SC.bn:'')}
+function bars(clock,night){const g=i=>document.getElementById(i);g('bh').style.width=Math.max(0,vit.hp)+'%';g('bf').style.width=vit.hun+'%';g('be').style.width=vit.en+'%';{const cw=g('bcw');if(cw){const v=vit.cold||0;cw.style.display=v>1?'':'none';g('bc').style.width=v+'%'}}g('day').textContent=(window.SC&&SC.wxE?SC.wxE+' ':'')+(night?'Ночь ':'День ')+(Math.floor(clock/DAYMS)+1)+(window.SC&&SC.bn?' · '+SC.bn:'')}
 function drawBag(){renderUI();MP.inv();document.getElementById('inv').innerHTML=['wood','cactus','stone','berry','grass','gel'].map(k=>`<span><img src="data:image/svg+xml;charset=utf-8,${encodeURIComponent(ICON[k])}">${cnt(k)}</span>`).join('')}
 // ===== 3. ИГРА =====
 const JV=330,GR=1400,EATMS=620;
@@ -418,7 +418,7 @@ class Main extends Phaser.Scene{
   this.sw=0;this.nextHit=0;this.near=null;drawBag();
   // выживание: время суток, слизни
   this.clock=DAYMS*.05;this.spawnT=0;this.tired=false;this.dead=false;this.isNight=false;
-  this.night=this.add.rectangle(0,0,4000,4000,0x050a24,0).setOrigin(0).setScrollFactor(0).setDepth(1e5);
+  this.night=this.add.rectangle(-4000,-4000,12000,12000,0x050a24,1).setOrigin(0).setScrollFactor(0).setDepth(1e5);
   {const g=this.textures.createCanvas('glow',256,256),x=g.getContext(),gr=x.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,'rgba(255,225,160,.9)');gr.addColorStop(1,'rgba(255,225,160,0)');x.fillStyle=gr;x.fillRect(0,0,256,256);g.refresh();this.glowS=this.add.image(0,0,'glow').setScale(1.6).setBlendMode(Phaser.BlendModes.ADD).setDepth(2e5).setAlpha(0)}
   this.slimes=this.physics.add.group();this.blocks=new Map();this.floors=new Map();this.roofs=new Map();this.rugs=new Map();window.SC=this;this.fx=0;this.fy=1;this.ghost=this.add.image(0,0,'floor').setAlpha(.6).setDepth(9e4).setVisible(false);this.physics.add.collider(this.slimes,walls);
   for(let i=0;i<6;i++)this.spawnSlime(400,800);VIL.init(this);GEN.init(this);MP.attach(this);XC.init(this);FA.init(this);
@@ -554,7 +554,7 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
  slSync(a){const sm=this.sm||(this.sm=new Map()),seen=new Set();for(const [id,x,y,kd,hp] of a){seen.add(id);let m=sm.get(id);if(!m){m=this.slimes.create(x,y,kd||'slime').setOrigin(.5,.8);m.body.enable=false;m.sid=id;m.kind=kd||'slime';m.hp=hp||3;m.cd=0;m.stun=0;m.dying=false;sm.set(id,m)}m.tx=x;m.ty=y;if(hp!==undefined)m.hp=hp}
   for(const [id,m] of sm)if(!seen.has(id)){m.destroy();sm.delete(id)}}
  guestHit(m){this.sw=this.cat.flipX?-24:24;this.tweens.add({targets:this,sw:0,duration:220});m.setTintFill(0xffffff);this.time.delayedCall(90,()=>m.active&&m.clearTint());MP.ch.send({type:'broadcast',event:'hit',payload:{sid:m.sid,k:eq}})}
- respawnPos(){const b=this.res.find(o=>o.type==='build'&&o.kind==='bed'&&!o.gone);return b?[b.x,b.y+34]:[SPAWN.x,SPAWN.y]}
+ respawnPos(){const bp=this.bedPt;if(bp){const b=this.res.find(o=>o.type==='build'&&o.kind==='bed'&&!o.gone&&Math.abs(o.x-bp.x)<6&&Math.abs(o.y-bp.y)<6);if(b)return [b.x,b.y+34];this.bedPt=null;this.time.delayedCall(500,()=>this.pop(this.cat.x,this.cat.y-95,'Кровать сломана — вы в начале мира'))}return [SPAWN.x,SPAWN.y]}
  dropItem(id,n){const c=this.cat,uid=MP.pid+Date.now().toString(36)+(Math.random()*99|0),x=c.x+(this.fx||0)*34,y=c.y+(this.fy||(this.fx?0:1))*30;this.spawnGround(uid,id,n,x,y,this.time.now+900);MP.send('gdrop',{uid,id,n,x,y});AU.sfx('place')}
  lootAt(x,y,list){list.forEach(([id,n],i)=>{const uid=MP.pid+Date.now().toString(36)+i,gx=x+(i-1)*24,gy=y+((i%2)?10:-6);this.spawnGround(uid,id,n,gx,gy,this.time.now+400);MP.send('gdrop',{uid,id,n,x:gx,y:gy})})}
  spawnGround(uid,id,n,x,y,ok){const gi=this.gi||(this.gi=new Map());if(gi.has(uid))return;const rec={id,n,ok:ok||0,x,y};gi.set(uid,rec);
@@ -576,14 +576,14 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
    this.mapFor(o.kind).delete(o.cx+','+o.cy);if(o.glow)o.glow.destroy();MP.send('remove',{id:o.kind,cx:o.cx,cy:o.cy});return}
   if(o.kind==='door'){this.setDoor(o.cx,o.cy,!o.open);MP.send('door',{cx:o.cx,cy:o.cy,open:o.open,v:o.v})}
   else if(o.kind==='chest')setOpen(true,o);
-  else if(o.kind==='bed')this.sleep();
+  else if(o.kind==='bed')this.sleep(o);
   else if(o.kind==='bench'||o.kind==='furnace'){setOpen(true);this.pop(o.x,o.y-40,o.kind==='bench'?'Верстак рядом: больше рецептов':'Печь рядом: можно жарить')}}
- sleep(){const cam=this.cameras.main,c=this.cat;this.dead=true;this.resetJump();c.setVelocity(0,0);cam.fadeOut(800,0,0,0);
+ sleep(bed){if(bed)this.bedPt={x:bed.x,y:bed.y};const cam=this.cameras.main,c=this.cat;this.dead=true;this.resetJump();c.setVelocity(0,0);cam.fadeOut(800,0,0,0);
    if(this.textures.exists('cat_sleep0')){let n=0;c.setTexture('cat_sleep0');this.slpT=this.time.addEvent({delay:300,loop:true,callback:()=>c.setTexture('cat_sleep'+(++n%5))})}
    this.time.delayedCall(1200,()=>{if(this.slpT){this.slpT.remove();this.slpT=null}const p=(this.clock/DAYMS)%1;if(!MP.on)this.clock=p>=.5?(Math.floor(this.clock/DAYMS)+1.02)*DAYMS:this.clock+30000;
-   vit.en=100;vit.hp=Math.min(100,vit.hp+25);vit.hun=Math.max(5,vit.hun-10);
+   vit.en=100;vit.cold=0;vit.hp=Math.min(100,vit.hp+25);vit.hun=Math.max(5,vit.hun-10);
    for(const m of [...this.slimes.getChildren()])if(Math.hypot(m.x-c.x,m.y-c.y)<500)m.destroy();
-   cam.fadeIn(700,0,0,0);this.dead=false;this.pop(c.x,c.y-60,'Выспался!')})}
+   cam.fadeIn(700,0,0,0);this.dead=false;if(this.bedPt)this.pop(c.x,c.y-95,'Точка возрождения здесь');this.pop(c.x,c.y-60,'Выспался!')})}
  pop(x,y,s){const tx=this.add.text(x,y,s,{fontFamily:'Georgia',fontSize:'16px',color:'#fff',stroke:'#2b3a1f',strokeThickness:4,resolution:2}).setOrigin(.5).setDepth(2e5);this.tweens.add({targets:tx,y:y-34,alpha:0,duration:1100,onComplete:()=>tx.destroy()})}
  eat(){if(cnt('berry')<1||vit.hun>=99)return;AU.sfx('eat');this.eatT=this.time.now+EATMS;take('berry',1);vit.hun=Math.min(100,vit.hun+22);vit.hp=Math.min(100,vit.hp+4);drawBag();this.pop(this.cat.x,this.cat.y-50,'Ням! Сытость +')}
  spawnSlime(a0,a1,kind='slime'){const c=this.cat;for(let i=0;i<10;i++){const a=Math.random()*6.283,d=a0+Math.random()*(a1-a0),x=c.x+Math.cos(a)*d,y=c.y+Math.sin(a)*d;
@@ -605,17 +605,37 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
  hurt(a,m){const c=this.cat,dx=m.x-c.x,dy=m.y-c.y,d=Math.hypot(dx,dy)||1;vit.hp-=a;this.hurtT=this.time.now+260;AU.sfx('hurt');c.setTint(0xff7070);this.time.delayedCall(180,()=>c.clearTint());this.cameras.main.shake(120,.004);m.setVelocity(dx/d*170,dy/d*170);m.stun=300}
  die(){if(this.dead)return;this.dead=true;this.resetJump();const c=this.cat,cam=this.cameras.main;c.setVelocity(0,0);
   c.setTexture('cat_dead0').setCrop().clearTint();this.tweens.add({targets:c,alpha:.55,duration:500});AU.sfx('die');this.pop(c.x,c.y-60,'Котик без сил…');cam.fadeOut(900,0,0,0);
-  this.time.delayedCall(1500,()=>{c.setPosition(...this.respawnPos()).setAngle(0).setAlpha(1);vit.hp=50;vit.hun=Math.max(vit.hun,50);vit.en=60;
+  this.time.delayedCall(1500,()=>{c.setPosition(...this.respawnPos()).setAngle(0).setAlpha(1);vit.hp=50;vit.hun=Math.max(vit.hun,50);vit.en=60;vit.cold=0;
    for(const m of [...this.slimes.getChildren()])if(Math.hypot(m.x-c.x,m.y-c.y)<350)m.destroy();
    cam.fadeIn(700,0,0,0);this.dead=false;this.pop(c.x,c.y-60,'Котик возродился дома')})}
+ weather(t,dt){const c=this.cat,cam=this.cameras.main,s=dt/1000;
+  if(!this.wxG){this.wxG=this.add.graphics().setDepth(99990);this.wxF=this.add.rectangle(-4000,-4000,12000,12000,0xcfd9e0,1).setOrigin(0).setScrollFactor(0).setDepth(99980).setAlpha(0);this.wxL=this.add.rectangle(-4000,-4000,12000,12000,0xffffff,1).setOrigin(0).setScrollFactor(0).setDepth(99999).setAlpha(0);this.wxP=[];for(let i=0;i<170;i++)this.wxP.push({x:Math.random(),y:Math.random(),v:.6+Math.random()*.6});this.wxK='clear';this.wxI=0;this.wxN=5000;this.wxE=''}
+  if(VIL.in){this.wxG.clear();this.wxF.setAlpha(0);this.wxE='';return 0}
+  const seg=Math.floor(this.clock/(DAYMS*.3)),h=seg<2?0:(Math.imul(seg,2654435761)>>>0)%100,want=h<50?'clear':h<78?'rain':h<90?'fog':'storm',snow=bio(c.x,c.y)==='snow';
+  if(want!==this.wxK){this.wxI=Math.max(0,this.wxI-s/3);if(this.wxI<=.01){this.wxK=want;this.wxI=0;if(!this.dead)this.pop(c.x,c.y-90,want==='clear'?'Прояснилось':want==='fog'?'Опустился туман':want==='storm'?'Гроза!':snow?'Пошёл снег':'Пошёл дождь')}}
+  else if(want!=='clear')this.wxI=Math.min(1,this.wxI+s/4);
+  const k=this.wxK,I=this.wxI,g=this.wxG,wv=cam.worldView,z=cam.zoom;g.clear();
+  this.wxE=I>.3?(k==='fog'?'🌫':k==='storm'?(snow?'🌨':'⛈'):k==='rain'?(snow?'🌨':'🌧'):''):'';
+  this.wxF.setAlpha(k==='fog'?I*.5:k==='storm'?I*.12:0);
+  if(k==='rain'||k==='storm'){const N=Math.floor(170*I*(k==='storm'?1:.7)),sp=(snow?.16:1.3)*(k==='storm'?1.3:1);
+   if(snow)g.fillStyle(0xffffff,.85);else g.lineStyle(1.5/z,0xbfd8ff,.55);
+   for(let i=0;i<N;i++){const q=this.wxP[i];q.y+=s*sp*q.v;q.x+=s*(snow?.03*Math.sin(t/900+i):.2)*q.v;if(q.y>1){q.y-=1;q.x=Math.random()}if(q.x>1)q.x-=1;else if(q.x<0)q.x+=1;
+    const X=wv.x+q.x*wv.width,Y=wv.y+q.y*wv.height;if(snow)g.fillRect(X,Y,3/z,3/z);else g.lineBetween(X,Y,X-4/z,Y-12/z)}}
+  if(k==='storm'&&I>.7){this.wxN-=dt;if(this.wxN<=0){this.wxN=7000+Math.random()*9000;this.wxL.setAlpha(.75);this.tweens.add({targets:this.wxL,alpha:0,duration:380})}}
+  return k==='storm'?.26*I:k==='rain'?.13*I:k==='fog'?.04*I:0}
  survive(t,dt){
   const s=dt/1000,c=this.cat;
   this.clock=MP.on&&MP.t0?DAYMS*.05+(Date.now()-MP.t0):this.clock+dt;const p=(this.clock/DAYMS)%1,n=p<.5?0:p<.6?(p-.5)*10:p<.9?1:(1-p)*10;
-  this.night.setAlpha(n*.8);AU.night=n>.5;this.glowS.setAlpha(n*.55).setPosition(c.x,c.y);{const B=this.slimes.getChildren().find(m=>m.kind==='boss'&&!m.dying),bd=$('boss');bd.hidden=!B;if(B)$('bossi').style.width=Math.max(0,B.hp/30*100)+'%'}this.isNight=n>.5;for(const o of this.res)if(o.glow)o.glow.setAlpha(n*.6);
+  this.night.setAlpha(Math.min(.92,n*.82+this.weather(t,dt)));AU.night=n>.5;this.glowS.setAlpha(n*.55).setPosition(c.x,c.y);{const B=this.slimes.getChildren().find(m=>m.kind==='boss'&&!m.dying),bd=$('boss');bd.hidden=!B;if(B)$('bossi').style.width=Math.max(0,B.hp/30*100)+'%'}this.isNight=n>.5;for(const o of this.res)if(o.glow)o.glow.setAlpha(n*.6);
   vit.hun=Math.max(0,vit.hun-s*.18*(this.bn==='Пустыня'?1.7:1));
-  if(this.swim){vit.en-=s*4;if(vit.en<=0)vit.hp-=s*6}else if(this.running)vit.en-=s*16;else vit.en+=s*(this.moving?5:12);
+  if(this.swim){vit.en-=s*4;if(vit.en<=0)vit.hp-=s*6}else if(this.running)vit.en-=s*16;else vit.en+=s*(this.moving?5:12)*(1-.4*((this.wxK==='rain'||this.wxK==='storm')?this.wxI:0));
   vit.en=Math.min(100,Math.max(0,vit.en));
-  if(vit.en<=1)this.tired=true;else if(vit.en>=25)this.tired=false;
+  {const wet=this.swim&&bio(c.x,c.y)==='snow';vit.cold=Math.min(100,Math.max(0,(vit.cold||0)+s*(wet?9:VIL.in?-14:-5)));
+   if(vit.cold>=100)vit.hp-=s*6;else if(vit.cold>60)vit.hp-=s*2.5;
+   if(vit.cold>35){if(this.time.now>(this.hurtT||0)){c.setTint(0x9fd4ff);this.cTint=1}}else if(this.cTint){c.clearTint();this.cTint=0}
+   if(vit.cold>=50&&!this.cw1){this.cw1=1;this.pop(c.x,c.y-60,'Брр... ледяная вода!')}if(vit.cold<20)this.cw1=0;
+   if(vit.cold>=85&&!this.cw2){this.cw2=1;this.pop(c.x,c.y-60,'Замерзаю! Выбирайся на берег!')}if(vit.cold<50)this.cw2=0}
+   if(vit.en<=1)this.tired=true;else if(vit.en>=25)this.tired=false;
   if(vit.hun<=0)vit.hp-=s*2.5;else if(vit.hun>40)vit.hp=Math.min(100,vit.hp+s);
   if(st.eat||Phaser.Input.Keyboard.JustDown(this.k.F)){st.eat=false;this.eat()}
   this.spawnT-=dt;if(this.spawnT<=0&&(!MP.on||MP.host)){this.spawnT=3500;{const A=this.slimes.getChildren().filter(m=>!m.dying),sh=A.filter(m=>m.kind==='shade').length,bs=A.some(m=>m.kind==='boss'),nsl=A.length-sh;
@@ -642,7 +662,7 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
   let y=(k.S.isDown||u.down.isDown?1:0)-(k.W.isDown||u.up.isDown?1:0)+st.jy;
   if(isOpen){x=0;y=0;st.jump=0}const l=Math.hypot(x,y);if(l>1){x/=l;y/=l}
   if(st.jump){const fr=performance.now()-st.jump<250;st.jump=0;if(fr)this.tryJump(t)}else if(!isOpen&&Phaser.Input.Keyboard.JustDown(k.SPACE))this.tryJump(t);this.jump(t,dt);
-   const swim=!(this.jz>0)&&this.inWater(c.x,c.y+6),run=(st.run||k.SHIFT.isDown)&&!this.tired&&!swim,sp=swim?78:run?200:115;this.swim=swim;this.bn=BN[bio(c.x,c.y)];this.snow(t);this.running=run&&l>.08;this.moving=l>.08;if(l>.08){if(Math.abs(x)>Math.abs(y)){this.fx=Math.sign(x);this.fy=0}else{this.fx=0;this.fy=Math.sign(y)}}
+   const swim=!(this.jz>0)&&this.inWater(c.x,c.y+6),run=(st.run||k.SHIFT.isDown)&&!this.tired&&!swim,sp=(swim?78:run?200:115)*(vit.cold>60?.7:1);this.swim=swim;this.bn=BN[bio(c.x,c.y)];this.snow(t);this.running=run&&l>.08;this.moving=l>.08;if(l>.08){if(Math.abs(x)>Math.abs(y)){this.fx=Math.sign(x);this.fy=0}else{this.fx=0;this.fy=Math.sign(y)}}
   c.setVelocity(x*sp,y*sp);
   if(l>.08){if(x<-.1)c.setFlipX(true);else if(x>.1)c.setFlipX(false)}
   {const J=this.jz>0||t<this.landT,jf=this.jz>0?(this.jv>0?(t-this.jT<80?0:1):this.jv>-JV*.5?2:this.jz<9?4:3):4,
@@ -809,6 +829,9 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden&&AU.c&&AU.
 if('serviceWorker' in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register('sw.js').catch(()=>{});
 let instEv=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();instEv=e;document.getElementById('minst').hidden=false});
 const SB_URL='https://fmlvgwvvuhvhygnioxuy.supabase.co',SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtbHZnd3Z2dWh2aHlnbmlveHV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTM0MjI0NzUsImV4cCI6MjEwODk5ODQ3NX0.xj62Ux4k_6SeuffygSV5GiijdlQbbMK9Wq7WpfEoAx8';
+function posObj(){const sc=window.SC;if(!sc||!sc.cat)return undefined;let x=sc.cat.x,y=sc.cat.y;if(VIL.in&&VIL.house){x=VIL.house.x;y=VIL.house.y+26}return {x:Math.round(x),y:Math.round(y),k:Math.round(sc.clock),b:sc.bedPt?[Math.round(sc.bedPt.x),Math.round(sc.bedPt.y)]:null,ts:Date.now()}}
+function lastPos(k){try{return k?JSON.parse(localStorage.getItem(k)):null}catch(e){return null}}
+function savePosLocal(){try{if(!window.SC||!SC.cat||SC.dead&&vit.hp<=0)return;const m=posObj();if(!m)return;if(MP.on){if(MP.ready)localStorage.setItem('cw_m_mp_'+MP.code+'_'+MP.pid,JSON.stringify(m))}else if(MP.loc&&MP.solo)localStorage.setItem('cw_m_'+MP.solo,JSON.stringify(m))}catch(e){}}
 const MP={nick:'Котик',host:true,other:'',n2:0,on:false,ready:false,nt:0,it:0,seen:0,f:0,e:0,lt:'',
  pid:(()=>{try{let v=localStorage.getItem('cw_pid');if(!v){v=Math.random().toString(36).slice(2,10);localStorage.setItem('cw_pid',v)}return v}catch(e){return Math.random().toString(36).slice(2,10)}})(),
  key:(id,x,y)=>id+':'+x+','+y,
@@ -836,17 +859,17 @@ const MP={nick:'Котик',host:true,other:'',n2:0,on:false,ready:false,nt:0,it
   else if(t==='cut')w('c',''+d.i,1)
   else if(t==='gdrop')w('g',d.uid,{id:d.id,n:d.n,x:d.x,y:d.y})
   else if(t==='gpick')w('g',d.uid,null);else if(t==='vil')w('v',d.key,d.val)},
- inv(){if(!MP.on){if(MP.loc){clearTimeout(MP.it);MP.it=setTimeout(()=>MP.snap(),600)}return}clearTimeout(MP.it);MP.it=setTimeout(()=>MP.rpc('world_set',{p_code:MP.code,p_group:'p',p_key:MP.pid,p_val:{s:slots,v:[Math.round(vit.hp),Math.round(vit.hun),Math.round(vit.en)]}}).catch(()=>{}),1500)},
+ inv(f){if(!MP.on){if(MP.loc){clearTimeout(MP.it);MP.it=setTimeout(()=>MP.snap(),600)}return}clearTimeout(MP.it);MP.it=setTimeout(()=>MP.rpc('world_set',{p_code:MP.code,p_group:'p',p_key:MP.pid,p_val:{s:slots,v:[Math.round(vit.hp),Math.round(vit.hun),Math.round(vit.en)],m:posObj()}}).catch(()=>{}),f?0:1500)},
  attach(sc){if(!MP.on&&!MP.loc)return;const st=MP.on?(MP.st||{}):MP.loc;if(MP.on)sc.slimes.clear(true,true);
   for(const k in st.c||{})sc.cutRes(+k);
   for(const k in st.g||{}){const g=st.g[k];sc.spawnGround(k,g.id,g.n,g.x,g.y,0)}
   for(const k in st.b||{}){const b=st.b[k];sc.build(b.id,b.cx,b.cy,b.box,b.open,b.v)}
-  const me=(st.p||{})[MP.pid];if(me&&me.s)me.s.forEach((x,i)=>{slots[i]=x});if(me&&me.v)[vit.hp,vit.hun,vit.en]=me.v;
-  drawBag();if(MP.on)MP.ready=true;else{const m=st.m;if(m){sc.clock=m.k;sc.cat.setPosition(m.x,m.y)}if(vit.hp<=0)vit.hp=50}},
+  const me=(st.p||{})[MP.pid];if(me&&me.s)me.s.forEach((x,i)=>{slots[i]=x});if(me&&me.v)[vit.hp,vit.hun,vit.en]=me.v;if(MP.on){let m=me&&me.m;const lm=lastPos('cw_m_mp_'+MP.code+'_'+MP.pid);if(lm&&(!m||(lm.ts||0)>(m.ts||0)))m=lm;if(m&&m.x!=null){sc.cat.setPosition(m.x,m.y);if(m.b)sc.bedPt={x:m.b[0],y:m.b[1]}}}
+  drawBag();if(MP.on)MP.ready=true;else{let m=st.m;const lm=lastPos(MP.solo?'cw_m_'+MP.solo:'');if(lm&&(!m||(lm.ts||0)>(m.ts||0)))m=lm;if(m&&m.x!=null){if(m.k!=null)sc.clock=m.k;sc.cat.setPosition(m.x,m.y);if(m.b)sc.bedPt={x:m.b[0],y:m.b[1]}}if(vit.hp<=0)vit.hp=50}},
  tick(t,c){if(!MP.on||!MP.ready)return;
   const near=performance.now()-MP.seen<4000;MP.host=!near||MP.pid<MP.other;
   if(MP.wh!==undefined&&MP.host!==MP.wh){SC.slimes.clear(true,true);SC.sm=new Map()}MP.wh=MP.host;
-  if(t>(MP.vt||0)){MP.vt=t+20000;MP.inv()}
+  if(t>(MP.vt||0)){MP.vt=t+8000;MP.inv()}
   if(MP.host&&near&&t>MP.n2){MP.n2=t+110;MP.ch.send({type:'broadcast',event:'sl',payload:{a:SC.slimes.getChildren().filter(m=>!m.dying).map(m=>[m.sid,Math.round(m.x),Math.round(m.y),m.kind,m.hp])}})}
   if(t>MP.nt){MP.nt=t+60;const ac=SC.slpT?'z':SC.dead?'d':t<SC.hurtT?'h':t<SC.eatT?'e':t<SC.atkT?'k':SC.swim?'s':SC.running?'r':'';MP.ch.send({type:'broadcast',event:'pos',payload:{x:c.x,y:c.y,j:Math.round(SC.jz||0),fl:c.flipX,f:MP.f,e:MP.e,n:MP.nick,id:MP.pid,a:ac}})}
    if(t>(MP.pt||0)){MP.pt=t+200;const pl=FA.pets().map(a=>[a.k,Math.round(a.x),Math.round(a.y),a.s&&a.s.flipX?1:0,Math.round(a.alt||0)]),sg=JSON.stringify(pl);if(pl.length||MP.ps!==sg){MP.ps=sg;MP.ch.send({type:'broadcast',event:'pets',payload:{id:MP.pid,l:pl}})}}
@@ -858,9 +881,9 @@ Object.assign(MP,{loc:null,lload(){try{const v=JSON.parse(localStorage.getItem('
   if(t==='place')w('b',k(d.id,d.cx,d.cy),{id:d.id,cx:d.cx,cy:d.cy,v:d.v});else if(t==='remove')w('b',k(d.id,d.cx,d.cy),null);
   else if(t==='door')w('b',k('door',d.cx,d.cy),{id:'door',cx:d.cx,cy:d.cy,open:d.open,v:d.v});else if(t==='chest')w('b',k('chest',d.cx,d.cy),{id:'chest',cx:d.cx,cy:d.cy,box:d.box});
   else if(t==='cut')w('c',''+d.i,1);else if(t==='gdrop')w('g',d.uid,{id:d.id,n:d.n,x:d.x,y:d.y});else if(t==='gpick')w('g',d.uid,null);MP.lsave()},
- snap(){const L=MP.loc;if(!L)return;L.p[MP.pid]={s:slots,v:[Math.round(vit.hp),Math.round(vit.hun),Math.round(vit.en)]};if(window.SC&&SC.cat)L.m={x:Math.round(SC.cat.x),y:Math.round(SC.cat.y),k:Math.round(SC.clock)};MP.flush()},
+ snap(){const L=MP.loc;if(!L)return;L.p[MP.pid]={s:slots,v:[Math.round(vit.hp),Math.round(vit.hun),Math.round(vit.en)]};if(window.SC&&SC.cat){const q=posObj();if(q){L.m=q;savePosLocal()}}MP.flush()},
  flush(){if(!MP.loc||!MP.solo)return;MP.rpc('solo_save',{p_owner:MP.owner(),p_id:MP.solo,p_data:MP.loc}).catch(()=>{})}});
-setInterval(()=>{if(!MP.on&&MP.loc&&window.SC)MP.snap()},5000);addEventListener('pagehide',()=>{if(!MP.on&&MP.loc&&window.SC)MP.snap()});document.addEventListener('visibilitychange',()=>{if(document.hidden&&!MP.on&&MP.loc&&window.SC)MP.snap()});
+setInterval(()=>{if(!MP.on&&MP.loc&&window.SC)MP.snap()},5000);addEventListener('pagehide',()=>{if(!MP.on&&MP.loc&&window.SC)MP.snap()});document.addEventListener('visibilitychange',()=>{if(document.hidden&&!MP.on&&MP.loc&&window.SC)MP.snap()});setInterval(savePosLocal,2000);addEventListener('pagehide',()=>{savePosLocal();if(MP.on&&MP.ready)MP.inv(true)});document.addEventListener('visibilitychange',()=>{if(document.hidden){savePosLocal();if(MP.on&&MP.ready)MP.inv(true)}});
 // экранная клавиатура: в вертикальном телефоне игра повёрнута, поэтому системная клавиатура «не в ту сторону» — показываем свою, тоже повёрнутую
 (function(){const kb=$('kb'),LY={ru:['йцукенгшщзхъ','фывапролджэ','ячсмитьбю'],en:['qwertyuiop','asdfghjkl','zxcvbnm']};let lg='ru',up=false,cur=null;
  const draw=()=>{const K=c=>`<button data-c="${up?c.toUpperCase():c}">${up?c.toUpperCase():c}</button>`;kb.innerHTML=['1234567890',...LY[lg]].map(r=>`<div class="kr">${[...r].map(K).join('')}</div>`).join('')+`<div class="kr"><button class="s" data-a="lg">${lg==='ru'?'RU':'EN'}</button><button class="s" data-a="up">⇧</button><button class="w" data-c=" ">␣</button><button class="s" data-a="bs">⌫</button><button class="s" data-a="en">↵</button><button class="s" data-a="hd">⌄</button></div>`};
@@ -884,7 +907,7 @@ function dropSel(all){const q=slots[sel];if(!q||!window.SC)return;const n=all?q.
 $('bd').onclick=()=>dropSel(false);$('bda').onclick=()=>dropSel(true);
 $('csend').onclick=csend;$('cin').addEventListener('keydown',e=>{if(e.key==='Enter')csend()});
 $('cin').onfocus=()=>{if(window.SC)SC.input.keyboard.enabled=false};$('cin').onblur=()=>{if(window.SC)SC.input.keyboard.enabled=true};
-$('exitbtn').onclick=async()=>{if(!confirm('Выйти в главное меню?'))return;if(!MP.on)MP.snap();try{if(MP.on){clearTimeout(MP.it);await MP.rpc('world_set',{p_code:MP.code,p_group:'p',p_key:MP.pid,p_val:{s:slots,v:[Math.round(vit.hp),Math.round(vit.hun),Math.round(vit.en)]}})}}catch(e){}location.reload()};
+$('exitbtn').onclick=async()=>{if(!confirm('Выйти в главное меню?'))return;if(!MP.on)MP.snap();try{if(MP.on){clearTimeout(MP.it);await MP.rpc('world_set',{p_code:MP.code,p_group:'p',p_key:MP.pid,p_val:{s:slots,v:[Math.round(vit.hp),Math.round(vit.hun),Math.round(vit.en)],m:posObj()}})}}catch(e){}location.reload()};
 // ===== ГЛАВНОЕ МЕНЮ: выбор котика, затем старт игры =====
 const CATC={fur:[['#5a4030','#2a1d13','#3b2c20'],['#5a3f7a','#241533','#3b2a55']],eye:['#2b2b2b','#2f9e44','#2f7fd0','#d99a14']};
 const POSES=[['idle',4],['walk',4],['atk',2],['hurt',1],['dead',1]];
