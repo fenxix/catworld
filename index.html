@@ -381,6 +381,9 @@ Object.assign(ASSETS,{
 
 for(const k of ['wall','window','door','dooro','fence'])ASSETS[k+'v']=ASSETS[k].replace(/ width="(\d+)" height="(\d+)" viewBox="0 0 \d+ \d+">/,' width="14" height="$2" viewBox="0 0 $1 $2" preserveAspectRatio="none">');
 Object.assign(ASSETS,{
+ zombie:S(44,62,`<ellipse cx='22' cy='58' rx='15' ry='4' fill='#000' opacity='.25'/><rect x='12' y='40' width='8' height='17' rx='3' fill='#4a5a8a' stroke='#232a44' stroke-width='2.5'/><rect x='24' y='40' width='8' height='17' rx='3' fill='#3f4e7a' stroke='#232a44' stroke-width='2.5'/><ellipse cx='15' cy='57' rx='6.5' ry='3' fill='#6b8f55' stroke='#2f5a2a' stroke-width='2'/><ellipse cx='29' cy='57' rx='6.5' ry='3' fill='#6b8f55' stroke='#2f5a2a' stroke-width='2'/><path d='M11 24L2 17' stroke='#2f5a2a' stroke-width='9' stroke-linecap='round'/><path d='M11 24L2 17' stroke='#7fae5f' stroke-width='5' stroke-linecap='round'/><path d='M33 24L42 19' stroke='#2f5a2a' stroke-width='9' stroke-linecap='round'/><path d='M33 24L42 19' stroke='#7fae5f' stroke-width='5' stroke-linecap='round'/><path d='M10 24Q9 17 22 16Q35 17 34 24L33 43L29 40L25 44L21 40L17 44L13 40L11 43Z' fill='#7d5a3c' stroke='#3b2a1c' stroke-width='2.5' stroke-linejoin='round'/><path d='M17 26l4 4M27 30l-3 5' stroke='#4d3220' stroke-width='2' stroke-linecap='round'/><circle cx='22' cy='11' r='9.5' fill='#8fc06a' stroke='#2f5a2a' stroke-width='2.5'/><path d='M27 3l4 4M26 6l3 -3' stroke='#2f5a2a' stroke-width='1.8' stroke-linecap='round'/><circle cx='18' cy='10' r='3.2' fill='#fff' stroke='#2f5a2a' stroke-width='1.5'/><circle cx='18.6' cy='10.6' r='1.3' fill='#c0262f'/><circle cx='26.5' cy='10.8' r='2.5' fill='#fff' stroke='#2f5a2a' stroke-width='1.5'/><circle cx='26.8' cy='11' r='1' fill='#c0262f'/><path d='M16.5 16Q22 20 28 15' stroke='#2b3a1a' stroke-width='2.2' fill='none' stroke-linecap='round'/><path d='M19 17.6v2M22 18.4v2M25 17.6v2' stroke='#f3ecd0' stroke-width='1.6' stroke-linecap='round'/>`),
+ bat:S(44,30,`<ellipse cx='22' cy='28' rx='10' ry='2.5' fill='#000' opacity='.18'/><path d='M22 14Q14 3 1 8Q4 14 3 20Q8 17 11 22Q14 18 19 22Z' fill='#5a4f78' stroke='#241d3a' stroke-width='2' stroke-linejoin='round'/><path d='M22 14Q30 3 43 8Q40 14 41 20Q36 17 33 22Q30 18 25 22Z' fill='#5a4f78' stroke='#241d3a' stroke-width='2' stroke-linejoin='round'/><path d='M16 9L14.5 2L20.5 7Z' fill='#3a3350' stroke='#241d3a' stroke-width='2' stroke-linejoin='round'/><path d='M28 9L29.5 2L23.5 7Z' fill='#3a3350' stroke='#241d3a' stroke-width='2' stroke-linejoin='round'/><ellipse cx='22' cy='16' rx='7' ry='8' fill='#3a3350' stroke='#241d3a' stroke-width='2.5'/><circle cx='19.3' cy='14' r='2.1' fill='#ff4a4a'/><circle cx='24.7' cy='14' r='2.1' fill='#ff4a4a'/><path d='M19.6 19l1.1 3.2 1.1-3.2M22.2 19l1.1 3.2 1.1-3.2' fill='#fff'/>`),
+ spider:S(46,34,`<ellipse cx='23' cy='31' rx='15' ry='3' fill='#000' opacity='.22'/><g stroke='#1f1018' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'><path d='M15 18Q8 8 2 12'/><path d='M14 21Q5 18 2 25'/><path d='M15 24Q7 27 5 32'/><path d='M17 26Q12 31 10 33'/><path d='M31 18Q38 8 44 12'/><path d='M32 21Q41 18 44 25'/><path d='M31 24Q39 27 41 32'/><path d='M29 26Q34 31 36 33'/></g><ellipse cx='23' cy='21' rx='11' ry='9' fill='#4a2a3a' stroke='#1f1018' stroke-width='2.5'/><path d='M20 16h6l-3 4.5 3 4.5h-6l3-4.5z' fill='#d9344a'/><circle cx='23' cy='11' r='6.2' fill='#5a3646' stroke='#1f1018' stroke-width='2.3'/><circle cx='20.5' cy='9.6' r='1.7' fill='#ffdf4a'/><circle cx='25.5' cy='9.6' r='1.7' fill='#ffdf4a'/><circle cx='21.6' cy='12.8' r='1.2' fill='#ffdf4a'/><circle cx='24.4' cy='12.8' r='1.2' fill='#ffdf4a'/>`),
  shade:S(40,46,`<ellipse cx='20' cy='42' rx='13' ry='3' fill='#000' opacity='.2'/><path d='M5 40Q2 14 20 6Q38 14 35 40Q31 36 28 41Q24 36 20 41Q16 36 12 41Q9 36 5 40Z' fill='#6b4fa8' fill-opacity='.88' stroke='#2c1d52' stroke-width='3' stroke-linejoin='round'/><path d='M10 16Q14 10 20 10' stroke='#c9b8ff' stroke-width='3' fill='none' stroke-linecap='round'/><ellipse cx='14' cy='22' rx='3' ry='4.5' fill='#ffe27a'/><ellipse cx='26' cy='22' rx='3' ry='4.5' fill='#ffe27a'/><ellipse cx='14' cy='22.5' rx='1.2' ry='2.5' fill='#2c1d52'/><ellipse cx='26' cy='22.5' rx='1.2' ry='2.5' fill='#2c1d52'/><path d='M15 31Q20 34 25 31' stroke='#2c1d52' stroke-width='2' fill='none' stroke-linecap='round'/>`),
  boss:S(110,92,`<ellipse cx='55' cy='84' rx='46' ry='7' fill='#000' opacity='.25'/><path d='M8 80Q3 36 28 24Q55 10 82 24Q107 36 102 80Q55 90 8 80Z' fill='#5fbf5a' stroke='#245e2e' stroke-width='4' stroke-linejoin='round'/><path d='M22 40Q30 28 46 26' stroke='#d5f7c9' stroke-width='6' fill='none' stroke-linecap='round'/><ellipse cx='40' cy='52' rx='7' ry='9' fill='#1d3318'/><ellipse cx='70' cy='52' rx='7' ry='9' fill='#1d3318'/><circle cx='42' cy='48' r='2.8' fill='#fff'/><circle cx='72' cy='48' r='2.8' fill='#fff'/><path d='M44 68Q55 76 66 68' stroke='#1d3318' stroke-width='4' fill='none' stroke-linecap='round'/><path d='M30 24L34 4L44 16L55 0L66 16L76 4L80 24Z' fill='#ffd54a' stroke='#8a5a10' stroke-width='3' stroke-linejoin='round'/><circle cx='55' cy='12' r='3.5' fill='#e0475a'/>`)
 });
@@ -539,7 +542,7 @@ Object.assign(ICON,{
 function bars(clock,night){const g=i=>document.getElementById(i);g('bh').style.width=Math.max(0,vit.hp)+'%';g('bf').style.width=vit.hun+'%';g('be').style.width=vit.en+'%';{const cw=g('bcw');if(cw){const v=vit.cold||0;cw.style.display=v>1?'':'none';g('bc').style.width=v+'%'}}g('day').textContent=(window.SC&&SC.wxE?SC.wxE+' ':'')+(night?'Ночь ':'День ')+(Math.floor(clock/DAYMS)+1)+(window.SC&&SC.bn?' · '+SC.bn:'')}
 function drawBag(){renderUI();MP.inv();document.getElementById('inv').innerHTML=['wood','cactus','stone','berry','grass','gel'].map(k=>`<span><img src="data:image/svg+xml;charset=utf-8,${encodeURIComponent(ICON[k])}">${cnt(k)}</span>`).join('')}
 // ===== 3. ИГРА =====
-const JV=330,GR=1400,EATMS=620;
+const JV=330,GR=1400,EATMS=620,NIGHTK=['zombie','spider','bat'];
 const W=2400,H=1800,SPAWN={x:W/2,y:H*0.62},POND={x:1650,y:820};
 // большой мир ~18x: 20x15 чанков по 512px (10240x7680), «домашний» кусок 2400x1800 остался на месте, чтобы сохранения не сломались
 const CH=512,CX0=-8,CX1=11,CY0=-6,CY1=8,WX0=CX0*CH,WX1=(CX1+1)*CH,WY0=CY0*CH,WY1=(CY1+1)*CH;
@@ -594,7 +597,7 @@ class Main extends Phaser.Scene{
   this.clock=DAYMS*.05;this.spawnT=0;this.tired=false;this.dead=false;this.isNight=false;
   this.night=this.add.rectangle(-4000,-4000,12000,12000,0x050a24,1).setOrigin(0).setScrollFactor(0).setDepth(1e5);
   {const g=this.textures.createCanvas('glow',256,256),x=g.getContext(),gr=x.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,'rgba(255,225,160,.9)');gr.addColorStop(1,'rgba(255,225,160,0)');x.fillStyle=gr;x.fillRect(0,0,256,256);g.refresh();this.glowS=this.add.image(0,0,'glow').setScale(1.6).setBlendMode(Phaser.BlendModes.ADD).setDepth(2e5).setAlpha(0)}
-  this.slimes=this.physics.add.group();this.blocks=new Map();this.floors=new Map();this.roofs=new Map();this.rugs=new Map();window.SC=this;this.fx=0;this.fy=1;this.ghost=this.add.image(0,0,'floor').setAlpha(.6).setDepth(9e4).setVisible(false);this.physics.add.collider(this.slimes,walls);
+  this.lgP=[];this.mkDark();this.slimes=this.physics.add.group();this.blocks=new Map();this.floors=new Map();this.roofs=new Map();this.rugs=new Map();window.SC=this;this.fx=0;this.fy=1;this.ghost=this.add.image(0,0,'floor').setAlpha(.6).setDepth(9e4).setVisible(false);this.physics.add.collider(this.slimes,walls);
   for(let i=0;i<6;i++)this.spawnSlime(400,800);VIL.init(this);GEN.init(this);MP.attach(this);XC.init(this);FA.init(this);
  }
    splash(x,y){for(let i=0;i<8;i++){const a=i/8*6.28,e=this.add.circle(x,y+4,3,0xffffff,.9).setDepth(y+2);this.tweens.add({targets:e,x:x+Math.cos(a)*26,y:y-10+Math.sin(a)*12,alpha:0,duration:480,onComplete:()=>e.destroy()})}}
@@ -761,13 +764,13 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
  pop(x,y,s){const tx=this.add.text(x,y,s,{fontFamily:'Georgia',fontSize:'16px',color:'#fff',stroke:'#2b3a1f',strokeThickness:4,resolution:2}).setOrigin(.5).setDepth(2e5);this.tweens.add({targets:tx,y:y-34,alpha:0,duration:1100,onComplete:()=>tx.destroy()})}
  eat(){if(cnt('berry')<1||vit.hun>=99)return;AU.sfx('eat');this.eatT=this.time.now+EATMS;take('berry',1);vit.hun=Math.min(100,vit.hun+22);vit.hp=Math.min(100,vit.hp+4);drawBag();this.pop(this.cat.x,this.cat.y-50,'Ням! Сытость +')}
  spawnSlime(a0,a1,kind='slime'){const c=this.cat;for(let i=0;i<10;i++){const a=Math.random()*6.283,d=a0+Math.random()*(a1-a0),x=c.x+Math.cos(a)*d,y=c.y+Math.sin(a)*d;
-  if(x<WX0+120||x>WX1-120||y<WY0+150||y>WY1-120)continue;if(kind!=='shade'&&(!this.ok(x,y,50)||this.trees.some(p=>Math.hypot(p[0]-x,p[1]-y)<50)||XC.treeNear(this,x,y,50)))continue;
+  if(x<WX0+120||x>WX1-120||y<WY0+150||y>WY1-120)continue;if(kind!=='bat'&&(!this.ok(x,y,50)||this.trees.some(p=>Math.hypot(p[0]-x,p[1]-y)<50)||XC.treeNear(this,x,y,50)))continue;
   const m=this.slimes.create(x,y,kind).setOrigin(.5,.8).setCollideWorldBounds(true);
-  if(kind==='boss')m.body.setCircle(34,21,18);else if(kind==='shade'){m.body.setCircle(12,8,12);m.body.checkCollision.none=true}else m.body.setCircle(13,11,15);
-  m.kind=kind;m.sid=Math.random().toString(36).slice(2,8);m.hp=({boss:30,shade:3})[kind]||3;m.wander=0;m.stun=0;m.cd=0;m.dying=false;return m}}
+  if(kind==='boss')m.body.setCircle(34,21,18);else if(kind==='bat'){m.body.setCircle(11,11,5);m.body.checkCollision.none=true}else if(kind==='zombie')m.body.setCircle(12,10,36);else if(kind==='spider')m.body.setCircle(12,11,10);else m.body.setCircle(13,11,15);
+  m.kind=kind;m.sid=Math.random().toString(36).slice(2,8);m.hp=({boss:30,zombie:6,spider:4,bat:2})[kind]||3;m.wander=0;m.stun=0;m.cd=0;m.dying=false;return m}}
  mobDie(m,rt){const k=m.kind||'slime';AU.sfx(k==='boss'?'boom':'pop');
   if(k==='slime'){if(rt)MP.ch.send({type:'broadcast',event:'drop',payload:{n:1}});else{give('gel',1);drawBag();this.pop(m.x,m.y-30,'+1 Слизь')}}
-  else if(k==='shade')this.lootAt(m.x,m.y,[['moon',1+(Math.random()<.4?1:0)]]);
+  else if(NIGHTK.includes(k)){const Lt=[];if(k!=='bat'||Math.random()<.5)Lt.push(['moon',1+(Math.random()<.3?1:0)]);if(k==='zombie'&&Math.random()<.5)Lt.push(['berry',1]);if(k==='spider')Lt.push(['gel',1]);if(Lt.length)this.lootAt(m.x,m.y,Lt)}
   else{this.lootAt(m.x,m.y,[['crown',1],['gel',8],['moon',3]]);this.pop(m.x,m.y-60,'Король слизней повержен!')}
   this.tweens.add({targets:m,scaleX:1.5,scaleY:.1,alpha:0,duration:k==='boss'?600:220,onComplete:()=>m.destroy()})}
  strike(m,rt){const c=rt&&this.rem?this.rem:this.cat,dx=m.x-c.x,dy=m.y-c.y,d=Math.hypot(dx,dy)||1;
@@ -782,6 +785,36 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
   this.time.delayedCall(1500,()=>{c.setPosition(...this.respawnPos()).setAngle(0).setAlpha(1);vit.hp=50;vit.hun=Math.max(vit.hun,50);vit.en=60;vit.cold=0;
    for(const m of [...this.slimes.getChildren()])if(Math.hypot(m.x-c.x,m.y-c.y)<350)m.destroy();
    cam.fadeIn(700,0,0,0);this.dead=false;this.pop(c.x,c.y-60,'Котик возродился дома')})}
+ mkDark(){const cam=this.cameras.main,W=cam.width,H=cam.height,hw=Math.ceil(W/2),hh=Math.ceil(H/2);
+  for(const k of ['dkR','fgR'])if(this[k]){this[k].destroy();this[k]=null}
+  this.dkW=W;this.dkH=H;this.dkHW=hw;this.dkHH=hh;
+  const mk=d=>this.add.renderTexture(W/2,H/2,hw,hh).setOrigin(.5).setScrollFactor(0).setDepth(d);
+  this.dkR=mk(100001);this.fgR=mk(99985);
+  if(!this.textures.exists('lmask')){const g=this.textures.createCanvas('lmask',256,256),x=g.getContext(),gr=x.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.3,'rgba(255,255,255,.95)');gr.addColorStop(.65,'rgba(255,255,255,.42)');gr.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=gr;x.fillRect(0,0,256,256);g.refresh()}
+  if(!this.lmI)this.lmI=this.make.image({key:'lmask',add:false}).setOrigin(.5)}
+ lightPass(n,t,wx){const cam=this.cameras.main;if(!this.dkR||this.dkW!==cam.width||this.dkH!==cam.height)this.mkDark();
+  const vis=!VIL.in,P=this.lgP;this.dkR.setVisible(vis);this.fgR.setVisible(vis);
+  if(!vis){for(const g of P)g.setVisible(false);return}
+  const z=cam.zoom,wv=cam.worldView,c=this.cat,L=this.lmI,hw=this.dkHW,hh=this.dkHH,I=this.wxK==='fog'?this.wxI:0;
+  this.dkR.setScale(2/z);this.fgR.setScale(2/z);
+  // источники света: котик, фонари, печи, костёр и фонари в деревне, второй игрок
+  const Ls=[[c.x,c.y-12,175,0]],near=o=>Math.abs(o.x-c.x)<1100&&Math.abs(o.y-c.y)<800;
+  if(n>.02||I>.02){
+   for(const o of this.res)if(o.type==='build'&&!o.gone&&(o.kind==='lamp'||o.kind==='furnace')&&near(o))Ls.push([o.x,o.y-(o.kind==='lamp'?16:6),o.kind==='lamp'?250:100,1]);
+   if(VIL.c&&VIL.hs&&VIL.hs.length){const f=VIL.c;if(Math.abs(f.x-c.x)<1400&&Math.abs(f.y-c.y)<1000)Ls.push([f.x,f.y-12,350,1]);for(const o of VIL.lamps||[])if(o&&VIL.vs&&VIL.vs.l&&VIL.vs.l[o.k]&&near(o))Ls.push([o.x,o.y-50,240,1])}
+   if(MP.on&&this.rem&&this.rem.vis)Ls.push([this.rem.x,this.rem.y-12,160,0])}
+  // ночь: тёмный слой с «дырами» света, у огня тёплое свечение
+  const d=this.dkR,A=Math.min(.88,n*.86);let gi=0;
+  if(A>.01){d.clear();d.fill(0x070b24,A);this.dkOn=true;
+   for(const [x,y,r,w] of Ls){const fl=1+.05*Math.sin(t/110+x*.1)+.03*Math.sin(t/47+y*.1),px=(x-wv.x)*z/2,py=(y-wv.y)*z/2,rr=r*fl*z/2;if(px<-rr||py<-rr||px>hw+rr||py>hh+rr)continue;
+    d.erase(L.setScale(rr*2/256).setAlpha(1),px,py);
+    if(w){let g=P[gi];if(!g){g=P[gi]=this.add.image(0,0,'glow').setBlendMode(Phaser.BlendModes.ADD).setDepth(100002)}gi++;g.setVisible(true).setPosition(x,y).setScale(r*fl*1.1/128).setAlpha(Math.min(.55,n*.6)*(.85+.15*Math.sin(t/90+x)))}}}else if(this.dkOn){d.clear();this.dkOn=false}
+  d.setVisible(vis&&A>.01);for(let i=gi;i<P.length;i++)P[i].setVisible(false);
+  // туман: плотная пелена, виден только круг вокруг котика — чем гуще туман, тем уже круг
+  const F=this.fgR;
+  if(I>.02){F.clear();this.fgOn=true;const col=(((0xdb+(0x30-0xdb)*n)|0)<<16)|(((0xe3+(0x38-0xe3)*n)|0)<<8)|((0xe8+(0x4a-0xe8)*n)|0);
+   F.fill(col,Math.min(.97,I*1.5));
+   Ls.forEach(([x,y,r],i)=>{const rad=i===0?640-470*I:Math.min(r*.7,200),px=(x-wv.x)*z/2,py=(y-wv.y)*z/2,rr=rad*z/2;if(px<-rr||py<-rr||px>hw+rr||py>hh+rr)return;F.erase(L.setScale(rr*2/256).setAlpha(1),px,py)})}else if(this.fgOn){F.clear();this.fgOn=false}F.setVisible(vis&&I>.02)}
  weather(t,dt){const c=this.cat,cam=this.cameras.main,s=dt/1000;
   if(!this.wxG){this.wxG=this.add.graphics().setDepth(99990);this.wxF=this.add.rectangle(-4000,-4000,12000,12000,0xcfd9e0,1).setOrigin(0).setScrollFactor(0).setDepth(99980).setAlpha(0);this.wxL=this.add.rectangle(-4000,-4000,12000,12000,0xffffff,1).setOrigin(0).setScrollFactor(0).setDepth(99999).setAlpha(0);this.wxP=[];for(let i=0;i<170;i++)this.wxP.push({x:Math.random(),y:Math.random(),v:.6+Math.random()*.6});this.wxK='clear';this.wxI=0;this.wxN=5000;this.wxE=''}
   if(VIL.in){this.wxG.clear();this.wxF.setAlpha(0);this.wxE='';return 0}
@@ -790,7 +823,7 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
   else if(want!=='clear')this.wxI=Math.min(1,this.wxI+s/4);
   const k=this.wxK,I=this.wxI,g=this.wxG,wv=cam.worldView,z=cam.zoom;g.clear();
   this.wxE=I>.3?(k==='fog'?'🌫':k==='storm'?(snow?'🌨':'⛈'):k==='rain'?(snow?'🌨':'🌧'):''):'';
-  this.wxF.setAlpha(k==='fog'?I*.5:k==='storm'?I*.12:0);
+  this.wxF.setAlpha(k==='fog'?I*.18:k==='storm'?I*.12:0);
   if(k==='rain'||k==='storm'){const N=Math.floor(170*I*(k==='storm'?1:.7)),sp=(snow?.16:1.3)*(k==='storm'?1.3:1);
    if(snow)g.fillStyle(0xffffff,.85);else g.lineStyle(1.5/z,0xbfd8ff,.55);
    for(let i=0;i<N;i++){const q=this.wxP[i];q.y+=s*sp*q.v;q.x+=s*(snow?.03*Math.sin(t/900+i):.2)*q.v;if(q.y>1){q.y-=1;q.x=Math.random()}if(q.x>1)q.x-=1;else if(q.x<0)q.x+=1;
@@ -800,7 +833,7 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
  survive(t,dt){
   const s=dt/1000,c=this.cat;
   this.clock=MP.on&&MP.t0?DAYMS*.05+(Date.now()-MP.t0):this.clock+dt;const p=(this.clock/DAYMS)%1,n=p<.5?0:p<.6?(p-.5)*10:p<.9?1:(1-p)*10;
-  this.night.setAlpha(Math.min(.92,n*.82+this.weather(t,dt)));AU.night=n>.5;this.glowS.setAlpha(n*.55).setPosition(c.x,c.y);{const B=this.slimes.getChildren().find(m=>m.kind==='boss'&&!m.dying),bd=$('boss');bd.hidden=!B;if(B)$('bossi').style.width=Math.max(0,B.hp/30*100)+'%'}this.isNight=n>.5;for(const o of this.res)if(o.glow)o.glow.setAlpha(n*.6);
+  {const wxv=this.weather(t,dt);this.night.setAlpha(Math.min(.5,wxv));this.lightPass(n,t,wxv)}AU.night=n>.5;this.glowS.setAlpha(n*.3).setPosition(c.x,c.y);{const B=this.slimes.getChildren().find(m=>m.kind==='boss'&&!m.dying),bd=$('boss');bd.hidden=!B;if(B)$('bossi').style.width=Math.max(0,B.hp/30*100)+'%'}this.isNight=n>.5;for(const o of this.res)if(o.glow)o.glow.setAlpha(n*.6);
   vit.hun=Math.max(0,vit.hun-s*.18*(this.bn==='Пустыня'?1.7:1));
   if(this.swim){vit.en-=s*4;if(vit.en<=0)vit.hp-=s*6}else if(this.running)vit.en-=s*16;else vit.en+=s*(this.moving?5:12)*(1-.4*((this.wxK==='rain'||this.wxK==='storm')?this.wxI:0));
   vit.en=Math.min(100,Math.max(0,vit.en));
@@ -812,20 +845,20 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
    if(vit.en<=1)this.tired=true;else if(vit.en>=25)this.tired=false;
   if(vit.hun<=0)vit.hp-=s*2.5;else if(vit.hun>40)vit.hp=Math.min(100,vit.hp+s);
   if(st.eat||Phaser.Input.Keyboard.JustDown(this.k.F)){st.eat=false;this.eat()}
-  this.spawnT-=dt;if(this.spawnT<=0&&(!MP.on||MP.host)){this.spawnT=3500;{const A=this.slimes.getChildren().filter(m=>!m.dying),sh=A.filter(m=>m.kind==='shade').length,bs=A.some(m=>m.kind==='boss'),nsl=A.length-sh;
-   if(this.isNight&&sh<(MP.on?5:3)&&Math.random()<.6)this.spawnSlime(300,520,'shade');
+  this.spawnT-=dt;if(this.spawnT<=0&&(!MP.on||MP.host)){this.spawnT=3500;{const A=this.slimes.getChildren().filter(m=>!m.dying),sh=A.filter(m=>NIGHTK.includes(m.kind)).length,bs=A.some(m=>m.kind==='boss'),nsl=A.length-sh;
+   if(this.isNight&&sh<(MP.on?8:6)&&Math.random()<.7){const r=Math.random();this.spawnSlime(300,520,r<.5?'zombie':r<.8?'spider':'bat')}
    else if(nsl<(this.isNight?9:4))this.spawnSlime(330,580);
    const dn=Math.floor(this.clock/DAYMS)+1;if(this.isNight&&!bs&&dn%3===0&&this.bossDay!==dn){this.bossDay=dn;this.spawnSlime(380,480,'boss');this.pop(c.x,c.y-80,'Король слизней пробудился!');AU.sfx('boom')}}}
   for(const m of [...this.slimes.getChildren()]){
-   if(m.dying)continue;if(m.kind==='shade'&&!this.isNight&&(!MP.on||MP.host)){m.dying=true;this.tweens.add({targets:m,alpha:0,duration:600,onComplete:()=>m.destroy()});continue}
-   const R=MP.on&&this.rem&&this.rem.vis?this.rem:null,tg=R&&Math.hypot(R.x-m.x,R.y-m.y)<Math.hypot(c.x-m.x,c.y-m.y)?R:c,dx=tg.x-m.x,dy=tg.y-m.y,d=Math.hypot(dx,dy)||1,sp=m.kind==='boss'?42:m.kind==='shade'?95:this.isNight?70:55;
-   m.setDepth(m.y);const hop=Math.abs(Math.sin(t/180+m.x));m.setScale(1+hop*.05,1-hop*.07);
-   if(MP.on&&!MP.host){if(!(this.jz>12)&&Math.hypot(c.x-m.x,c.y-m.y)<(m.kind==='boss'?52:28)&&t>m.cd){m.cd=t+900;this.hurt(m.kind==='boss'?22:m.kind==='shade'?7:10,m)}continue}
+   if(m.dying)continue;if(NIGHTK.includes(m.kind)&&!this.isNight&&(!MP.on||MP.host)){m.dying=true;m.setTint(0xffa040);this.tweens.add({targets:m,alpha:0,duration:900,onComplete:()=>m.destroy()});continue}
+   const R=MP.on&&this.rem&&this.rem.vis?this.rem:null,tg=R&&Math.hypot(R.x-m.x,R.y-m.y)<Math.hypot(c.x-m.x,c.y-m.y)?R:c,dx=tg.x-m.x,dy=tg.y-m.y,d=Math.hypot(dx,dy)||1,sp=m.kind==='boss'?42:({zombie:50,spider:120,bat:95})[m.kind]||(this.isNight?70:55);
+   m.setDepth(m.kind==='bat'?m.y+200:m.y);const hop=Math.abs(Math.sin(t/180+m.x));if(m.kind==='zombie'){m.setScale(1,1);m.setAngle(Math.sin(t/230+m.x)*7)}else if(m.kind==='bat'){m.setScale(1+Math.sin(t/55+m.x)*.22,1-Math.abs(Math.sin(t/55+m.x))*.12)}else if(m.kind==='spider'){m.setScale(1+hop*.06,1-hop*.1)}else m.setScale(1+hop*.05,1-hop*.07);
+   if(MP.on&&!MP.host){if(!(this.jz>12)&&Math.hypot(c.x-m.x,c.y-m.y)<(m.kind==='boss'?52:28)&&t>m.cd){m.cd=t+900;this.hurt(m.kind==='boss'?22:({zombie:12,spider:8,bat:6})[m.kind]||10,m)}continue}
    if(d>1100&&m.kind!=='boss'){m.destroy();continue}
    if(m.stun>0){m.stun-=dt;continue}
-   if(d<(m.kind==='shade'?420:m.kind==='boss'?600:230))m.setVelocity(dx/d*sp,dy/d*sp);
+   if(d<(m.kind==='boss'?600:({zombie:420,spider:360,bat:500})[m.kind]||230)){let vx=dx/d*sp,vy=dy/d*sp;if(m.kind==='bat'){const w=Math.sin(t/170+m.x)*75;vx+=-dy/d*w;vy+=dx/d*w}m.setVelocity(vx,vy)}
    else{m.wander-=dt;if(m.wander<=0){m.wander=1200+Math.random()*2000;const a=Math.random()*6.28,v=Math.random()<.5?0:28;m.setVelocity(Math.cos(a)*v,Math.sin(a)*v)}}
-   if(!(this.jz>12)&&Math.hypot(c.x-m.x,c.y-m.y)<(m.kind==='boss'?52:28)&&t>m.cd){m.cd=t+900;this.hurt(m.kind==='boss'?22:m.kind==='shade'?7:10,m)}
+   if(!(this.jz>12)&&Math.hypot(c.x-m.x,c.y-m.y)<(m.kind==='boss'?52:28)&&t>m.cd){m.cd=t+900;this.hurt(m.kind==='boss'?22:({zombie:12,spider:8,bat:6})[m.kind]||10,m)}
   }
   bars(this.clock,this.isNight);
   if(vit.hp<=0)this.die();
@@ -1195,7 +1228,7 @@ Promise.all(Object.entries(ASSETS).map(([k,svg])=>new Promise(res=>{
  const i=new Image();i.onload=()=>{LOADED[k]=i;res()};i.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}))).then(()=>menuInit()).then(()=>{
  const game=new Phaser.Game({type:Phaser.AUTO,parent:'g',backgroundColor:'#4a8a3a',
   scale:{mode:Phaser.Scale.NONE,width:fit().w,height:fit().h},
-  physics:{default:'arcade',arcade:{gravity:{y:0}}},scene:Main,render:{antialias:true}});
+  physics:{default:'arcade',arcade:{gravity:{y:0}}},scene:Main,fps:{limit:60},render:{antialias:true}});
  addEventListener('resize',()=>{const f=fit();game.scale.resize(f.w,f.h)});
 });
 </script>
@@ -1283,28 +1316,47 @@ const XW={S:11,lc:new Map(),mc:new Map(),rv:[],hb:null,
   XW.mc.set(k,a);return a},
  mtnAt(x,y,m){const cx=Math.floor(x/CH),cy=Math.floor(y/CH);for(let j=-1;j<=1;j++)for(let i=-1;i<=1;i++){const c=XW.mt(cx+i,cy+j);if(c&&((x-c.x)/(c.a+m+70))**2+((y-c.y-40)/(c.b+m+90))**2<1)return true}return false}
 };
-const XC={ok:false,act:new Map(),q:[],pool:[],P:{},nk:'',big:true,
+const XC={ok:false,act:new Map(),q:[],fq:[],pq:[],nt:0,pn:0,pool:[],P:{},nk:'',big:true,
  *all(sc){yield*sc.res;if(sc.cres)yield*sc.cres},
  treeNear(sc,x,y,d){if(sc.cres)for(const o of sc.cres)if(o.type==='wood'&&!o.gone&&Math.hypot(o.x-x,o.y-y)<d)return true;return false},
- init(sc){XC.act.clear();XC.q=[];XC.nk='';XC.big=true;sc.cres=new Set();sc.cutSet=new Set();
+ init(sc){XC.act.clear();XC.q=[];XC.fq=[];XC.pq=[];XC.nt=0;XC.nk='';XC.big=true;sc.cres=new Set();sc.cutSet=new Set();
   const T={meadow:'grass',forest:'fgrass',snow:'snow',desert:'sand'};
   for(const b in T){const p=document.createElement('canvas');p.width=p.height=64;p.getContext('2d').drawImage(LOADED[T[b]],0,0);XC.P[b]=p}
+  XC.PAT={};{const pg=document.createElement('canvas').getContext('2d');for(const b in XC.P)XC.PAT[b]=pg.createPattern(XC.P[b],'repeat');XC.PAT.sea='#3a8fc6'}
   const B=40,wx=WX1-WX0,wy=WY1-WY0;
   for(const [x,y,w,h] of [[WX0+wx/2,WY0-B/2,wx+2*B,B],[WX0+wx/2,WY1+B/2,wx+2*B,B],[WX0-B/2,WY0+wy/2,B,wy],[WX1+B/2,WY0+wy/2,B,wy]])sc.mkWall(x,y,w,h);
   if(sc.textures.exists('mtn'))XC.ok=true;
   else{const i=new Image();i.onload=()=>{if(!sc.textures.exists('mtn'))sc.textures.addImage('mtn',i);XC.ok=true};i.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(MTN)}},
- step(sc,t){if(!XC.ok)return;const c=sc.cat;if(c.x<WX0-60||c.x>WX1+60||c.y<WY0-60||c.y>WY1+60)return;
+ dbg(sc,t){if(XC.dv===undefined){XC.dv=/[?&]fps/.test(location.search)?document.createElement('div'):null;if(XC.dv){XC.dv.style.cssText='position:absolute;left:4px;bottom:4px;z-index:90;pointer-events:none;font:11px monospace;color:#0f0;background:rgba(0,0,0,.6);padding:2px 5px;border-radius:4px';root.appendChild(XC.dv);XC.d0=t;XC.dn=0;XC.dw=0;XC.dl=t}}
+  if(!XC.dv)return;const d=t-XC.dl;XC.dl=t;XC.dn++;if(d>XC.dw)XC.dw=d;
+  if(t-XC.d0>=1000){XC.dv.textContent=XC.dn+' fps · худший кадр '+Math.round(XC.dw)+' мс · кусков '+XC.act.size+' · объектов '+sc.children.length;XC.d0=t;XC.dn=0;XC.dw=0}},
+ step(sc,t){if(!XC.ok)return;XC.dbg(sc,t);const c=sc.cat;if(c.x<WX0-60||c.x>WX1+60||c.y<WY0-60||c.y>WY1+60)return;
   const cam=sc.cameras.main,z=cam.zoom||1,hw=cam.width/z/2+224,hh=cam.height/z/2+224;
   const ax=Math.max(CX0,Math.floor((c.x-hw)/CH)),bx=Math.min(CX1,Math.floor((c.x+hw)/CH)),ay=Math.max(CY0,Math.floor((c.y-hh)/CH)),by=Math.min(CY1,Math.floor((c.y+hh)/CH)),key=ax+','+bx+','+ay+','+by;
   if(key!==XC.nk){XC.nk=key;XC.q=[];for(let j=ay;j<=by;j++)for(let i=ax;i<=bx;i++)if(!XC.act.has(i+','+j))XC.q.push([i,j]);
    const qx=c.x/CH-.5,qy=c.y/CH-.5;XC.q.sort((p,q)=>Math.hypot(p[0]-qx,p[1]-qy)-Math.hypot(q[0]-qx,q[1]-qy));
    for(const [k,ch] of [...XC.act])if(ch.cx<ax-1||ch.cx>bx+1||ch.cy<ay-1||ch.cy>by+1)XC.drop(sc,k,ch)}
-  if(XC.q.length){let n=XC.big?99:XC.q.length>4?2:1;while(n-->0&&XC.q.length){const [i,j]=XC.q.shift();if(!XC.act.has(i+','+j))XC.load(sc,i,j)}XC.big=false}},
- load(sc,cx,cy){const k=cx+','+cy,x0=cx*CH,y0=cy*CH,ch={cx,cy,o:[],f:[],w:[],tk:'ch_'+k};XC.act.set(k,ch);
-  const cv=ch.cv=XC.pool.pop()||Object.assign(document.createElement('canvas'),{width:CH,height:CH});XC.paint(cv,x0,y0);
-  sc.textures.addCanvas(ch.tk,cv);ch.g=sc.add.image(x0,y0,ch.tk).setOrigin(0).setDepth(-1e6);XC.feat(sc,ch,x0,y0)},
- paint(cv,x0,y0){const g=cv.getContext('2d'),C=16,n=CH/C,P={};for(const b in XC.P)P[b]=g.createPattern(XC.P[b],'repeat');P.sea='#3a8fc6';
-  const M=[];for(let j=-1;j<=n;j++){const row=[];for(let i=-1;i<=n;i++){const X=x0+i*C+8,Y=y0+j*C+8;row.push(GEN.sea(X,Y,0)?'sea':bio(X,Y))}M.push(row)}
+  if(XC.big){while(XC.q.length){const [i,j]=XC.q.shift();if(!XC.act.has(i+','+j))XC.load(sc,i,j,1)}for(const f of XC.fq)XC.fin(sc,f);XC.fq=[];XC.big=false;return}
+  if(XC.fq.length){XC.fin(sc,XC.fq.shift());return}
+  if(XC.pump(sc))return;
+  while(XC.q.length){const [i,j]=XC.q.shift();if(XC.act.has(i+','+j))continue;XC.load(sc,i,j);break}},
+ fin(sc,ch){if(XC.act.get(ch.cx+','+ch.cy)!==ch||ch.done)return;ch.done=1;XC.feat(sc,ch,ch.cx*CH,ch.cy*CH)},
+ mkPE(sc){const cv=Object.assign(document.createElement('canvas'),{width:CH,height:CH}),key='chp'+(++XC.pn);return{cv,key,tex:sc.textures.addCanvas(key,cv)}},
+ load(sc,cx,cy,sync){const k=cx+','+cy,x0=cx*CH,y0=cy*CH,ch={cx,cy,o:[],f:[],w:[],tk:'ch_'+k};XC.act.set(k,ch);
+  const pe=ch.pe=XC.pool.pop()||XC.mkPE(sc);
+  ch.g=sc.add.image(x0,y0,pe.key).setOrigin(0).setDepth(-1e6);
+  if(sync){XC.paint(pe.cv,x0,y0);pe.tex.refresh();XC.fq.push(ch)}
+  else{ch.g.setVisible(false);ch.ps={x0,y0,M:[],j:-1};XC.pq.push(ch)}},
+ // раскраска чанка по частям: за кадр ~3 мс, чтобы не было фризов
+ pump(sc){const q=XC.pq,n=CH/16;
+  while(q.length){const ch=q[0];if(XC.act.get(ch.cx+','+ch.cy)!==ch){q.shift();continue}
+   const ps=ch.ps;
+   if(ps.j<=n){const t0=performance.now();do{XC.mapRow(ps,ps.j);ps.j++}while(ps.j<=n&&performance.now()-t0<3);return true}
+   XC.draw(ch.pe.cv,ps.M);ch.pe.tex.refresh();ch.g.setVisible(true);ch.ps=null;q.shift();XC.fq.push(ch);return true}
+  return false},
+ mapRow(ps,j){const C=16,n=CH/C,row=[];for(let i=-1;i<=n;i++){const X=ps.x0+i*C+8,Y=ps.y0+j*C+8;row.push(GEN.sea(X,Y,0)?'sea':bio(X,Y))}ps.M.push(row)},
+ paint(cv,x0,y0){const ps={x0,y0,M:[]};for(let j=-1;j<=CH/16;j++)XC.mapRow(ps,j);XC.draw(cv,ps.M)},
+ draw(cv,M){const g=cv.getContext('2d'),C=16,n=CH/C,P=XC.PAT;
   for(let j=0;j<n;j++)for(let i=0;i<n;i++){g.fillStyle=P[M[j+1][i+1]];g.fillRect(i*C,j*C,C,C)}
   g.globalAlpha=.55;
   for(let j=0;j<n;j++)for(let i=0;i<n;i++){const b=M[j+1][i+1];for(const [a,c] of [[1,0],[-1,0],[0,1],[0,-1]]){const o=M[j+1+c][i+1+a];if(o!==b){g.fillStyle=P[o];g.beginPath();g.arc(i*C+8+a*7,j*C+8+c*7,10,0,7);g.fill()}}}
@@ -1352,7 +1404,7 @@ const XC={ok:false,act:new Map(),q:[],pool:[],P:{},nk:'',big:true,
  drop(sc,k,ch){XC.act.delete(k);
   for(const o of ch.o){sc.cres.delete(o);if(sc.near===o)sc.near=null;o.img.destroy();if(o.z&&o.z.active)sc.walls.remove(o.z,true,true)}
   for(const f of ch.f)f.destroy();for(const z of ch.w)if(z.active)sc.walls.remove(z,true,true);
-  ch.g.destroy();sc.textures.remove(ch.tk);XC.pool.push(ch.cv)}
+  ch.g.destroy();XC.pool.push(ch.pe)}
 };
 </script>
 <script>
