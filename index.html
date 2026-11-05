@@ -335,8 +335,19 @@ ICON.crown=S(32,32,`<path d='M4 24L6 9L13 16L16 6L19 16L26 9L28 24Z' fill='#ffd5
 ICON.saxe=ICON.axe;ICON.spick=ICON.pick;ICON.ssword=ICON.sword;{const wd=v=>v.split('#b9c0c6').join('#c8955a').split('#5d646b').join('#6b4423').split('#dfe5ea').join('#d9a766');ICON.axe=wd(ICON.axe);ICON.pick=wd(ICON.pick);ICON.sword=wd(ICON.sword)}
 // ===== ИНВЕНТАРЬ (24 слота) И КРАФТ =====
 const ORI=['wall','window','door','fence'],FLAT=['floor','roof','rug'],FALLBACK=S(32,32,"<rect x='5' y='5' width='22' height='22' rx='5' fill='#c8955a' stroke='#6b4423' stroke-width='2.5'/>");
-const ITEM={wood:{n:'Дерево',s:20},cactus:{n:'Кактус',s:20},stone:{n:'Камень',s:20},berry:{n:'Ягоды',s:20,f:[22,4]},grass:{n:'Трава',s:20},gel:{n:'Слизь',s:20},plank:{n:'Доски',s:20},axe:{n:'Деревянный топор',s:1,t:1},pick:{n:'Деревянная кирка',s:1,t:1},sword:{n:'Деревянный меч',s:1,t:1},saxe:{n:'Каменный топор',s:1,t:1},spick:{n:'Каменная кирка',s:1,t:1},ssword:{n:'Каменный меч',s:1,t:1},rope:{n:'Верёвка',s:20},rod:{n:'Удочка',s:1,t:1},mushroom:{n:'Грибы',s:20},crystal:{n:'Кристалл',s:20},glowshroom:{n:'Светящийся гриб',s:20,f:[15,0,20]},fish:{n:'Рыба',s:10},seed:{n:'Семечки',s:20,f:[6,0]},feather:{n:'Перо',s:20},wool:{n:'Шерсть',s:20},treat:{n:'Лакомство для зверей',s:20,f:[10,0]},jam:{n:'Варенье',s:10,f:[30,3]},mushsoup:{n:'Грибной суп',s:10,f:[50,6,8]},fishroast:{n:'Жареная рыба',s:10,f:[55,4,10]},fishpie:{n:'Рыбный пирог',s:10,f:[70,10,15]},pie:{n:'Пирог',s:10,f:[45,6]},salve:{n:'Мазь',s:10,f:[0,35]},floor:{n:'Пол',s:20,b:1},wall:{n:'Стена',s:20,b:1},door:{n:'Дверь',s:10,b:1},bed:{n:'Кровать',s:5,b:1},chest:{n:'Сундук',s:5,b:1},fence:{n:'Забор',s:20,b:1},window:{n:'Окно',s:10,b:1},roof:{n:'Крыша',s:20,b:1},bench:{n:'Верстак',s:3,b:1},furnace:{n:'Печь',s:3,b:1},rug:{n:'Ковёр',s:10,b:1},lamp:{n:'Фонарь',s:10,b:1},pot:{n:'Горшок',s:10,b:1},roast:{n:'Жареные ягоды',s:10,f:[40,8]},moon:{n:'Лунная пыль',s:20},crown:{n:'Корона слизней',s:1},msword:{n:'Лунный меч',s:1,t:1}};
-const REC=[['plank',{wood:2},2],['bench',{plank:8}],['axe',{wood:3},1,'bench'],['pick',{wood:3},1,'bench'],['treat',{berry:2,seed:2,grass:1},3,'bench'],['sword',{wood:2},1,'bench'],['saxe',{wood:2,stone:3},1,'bench'],['spick',{wood:2,stone:3},1,'bench'],['ssword',{wood:1,stone:3,gel:1},1,'bench'],['salve',{grass:2,gel:1},1,'bench'],['rope',{grass:3},1,'bench'],['rod',{rope:2,plank:2},1,'bench'],['floor',{plank:1},2,'bench'],['wall',{plank:2},1,'bench'],['fence',{plank:1},2,'bench'],['door',{plank:3},1,'bench'],['bed',{plank:4,grass:3},1,'bench'],['chest',{plank:4},1,'bench'],['furnace',{stone:8,wood:2},1,'bench'],['window',{plank:2,stone:1},1,'bench'],['roof',{plank:2,grass:1},2,'bench'],['lamp',{plank:1,gel:2,stone:1},1,'bench'],['rug',{grass:4,gel:1},1,'bench'],['pot',{stone:2,grass:2},1,'bench'],['roast',{berry:2},1,'furnace'],['pie',{berry:3,grass:1},1,'furnace'],['msword',{wood:1,stone:2,moon:4},1,'bench'],['jam',{berry:4},1,'furnace'],['mushsoup',{mushroom:3,berry:1},1,'furnace'],['fishroast',{fish:2},1,'furnace'],['fishpie',{fish:1,mushroom:2,grass:1},1,'furnace']];
+// ===== ЭТАП 1: тиры инструментов и новые материалы =====
+{const sw=(v,a,b)=>v.split('#b9c0c6').join(a).split('#5d646b').join(b),sw2=(v,a,b)=>v.split('#dfe5ea').join(a).split('#5d646b').join(b);
+ const TC={c:['#e08a4a','#7a3d17'],i:['#7f8fa3','#2a3340'],k:['#9be7ff','#1d5a8a'],g:['#ffd54a','#8a5a10']};
+ for(const t in TC){const [a,b]=TC[t];ICON[t+'axe']=sw(ICON.saxe,a,b);ICON[t+'pick']=sw(ICON.spick,a,b);ICON[t+'sword']=sw2(ICON.ssword,a,b)}
+ const OR={copper:['#e08a4a','#7a3d17','#f5b27a'],iron:['#8fa0b3','#2a3340','#c3cfdc'],icec:['#9be7ff','#1d5a8a','#e6fbff'],gold:['#ffd54a','#8a5a10','#fff2a8']};
+ for(const k in OR){const [a,b,c]=OR[k];ICON[k]=S(32,32,`<path d='M5 22L9 10L19 5L27 13L25 25L12 28Z' fill='${a}' stroke='${b}' stroke-width='2.5' stroke-linejoin='round'/><path d='M10 12L18 8L22 14L13 17Z' fill='${c}'/><circle cx='20' cy='21' r='2.5' fill='${c}'/>`)}}
+const OREDEF={copper:{col:'#e08a4a',need:2},iron:{col:'#9fb2c8',need:3},icec:{col:'#9be7ff',need:4},gold:{col:'#ffd54a',need:5}};
+const TA={axe:1,saxe:2,caxe:3,iaxe:4,kaxe:5,gaxe:6},TP={pick:1,spick:2,cpick:3,ipick:4,kpick:5,gpick:6};
+function oreTex(sc,id){const k='ore_'+id;if(sc.textures.exists(k))return k;const src=sc.textures.get('rock').getSourceImage(),w=src.width,h=src.height,cv=document.createElement('canvas');cv.width=w;cv.height=h;const g=cv.getContext('2d');g.drawImage(src,0,0);
+ g.strokeStyle='rgba(0,0,0,.5)';g.lineWidth=2;for(const [a,b] of [[.3,.5],[.55,.38],[.68,.62],[.42,.72],[.5,.55]]){g.fillStyle=OREDEF[id].col;g.beginPath();g.arc(w*a,h*b,Math.max(3,w*.08),0,7);g.fill();g.stroke();g.fillStyle='rgba(255,255,255,.7)';g.beginPath();g.arc(w*a-1,h*b-1,Math.max(1,w*.025),0,7);g.fill()}
+ sc.textures.addCanvas(k,cv);return k}
+const ITEM={wood:{n:'Дерево',s:20},cactus:{n:'Кактус',s:20},stone:{n:'Камень',s:20},berry:{n:'Ягоды',s:20,f:[22,4]},grass:{n:'Трава',s:20},gel:{n:'Слизь',s:20},plank:{n:'Доски',s:20},axe:{n:'Деревянный топор',s:1,t:1},pick:{n:'Деревянная кирка',s:1,t:1},sword:{n:'Деревянный меч',s:1,t:1},saxe:{n:'Каменный топор',s:1,t:1},spick:{n:'Каменная кирка',s:1,t:1},ssword:{n:'Каменный меч',s:1,t:1},rope:{n:'Верёвка',s:20},rod:{n:'Удочка',s:1,t:1},mushroom:{n:'Грибы',s:20},crystal:{n:'Кристалл',s:20},glowshroom:{n:'Светящийся гриб',s:20,f:[15,0,20]},fish:{n:'Рыба',s:10},seed:{n:'Семечки',s:20,f:[6,0]},feather:{n:'Перо',s:20},wool:{n:'Шерсть',s:20},treat:{n:'Лакомство для зверей',s:20,f:[10,0]},jam:{n:'Варенье',s:10,f:[30,3]},mushsoup:{n:'Грибной суп',s:10,f:[50,6,8]},fishroast:{n:'Жареная рыба',s:10,f:[55,4,10]},fishpie:{n:'Рыбный пирог',s:10,f:[70,10,15]},pie:{n:'Пирог',s:10,f:[45,6]},salve:{n:'Мазь',s:10,f:[0,35]},floor:{n:'Пол',s:20,b:1},wall:{n:'Стена',s:20,b:1},door:{n:'Дверь',s:10,b:1},bed:{n:'Кровать',s:5,b:1},chest:{n:'Сундук',s:5,b:1},fence:{n:'Забор',s:20,b:1},window:{n:'Окно',s:10,b:1},roof:{n:'Крыша',s:20,b:1},bench:{n:'Верстак',s:3,b:1},furnace:{n:'Печь',s:3,b:1},rug:{n:'Ковёр',s:10,b:1},lamp:{n:'Фонарь',s:10,b:1},pot:{n:'Горшок',s:10,b:1},roast:{n:'Жареные ягоды',s:10,f:[40,8]},moon:{n:'Лунная пыль',s:20},crown:{n:'Корона слизней',s:1},msword:{n:'Лунный меч',s:1,t:1},copper:{n:'Медь',s:20},iron:{n:'Железо',s:20},icec:{n:'Ледяной кристалл',s:20},gold:{n:'Золото',s:20},caxe:{n:'Медный топор',s:1,t:1},cpick:{n:'Медная кирка',s:1,t:1},csword:{n:'Медный меч',s:1,t:1},iaxe:{n:'Железный топор',s:1,t:1},ipick:{n:'Железная кирка',s:1,t:1},isword:{n:'Железный меч',s:1,t:1},kaxe:{n:'Кристальный топор',s:1,t:1},kpick:{n:'Кристальная кирка',s:1,t:1},ksword:{n:'Кристальный меч',s:1,t:1},gaxe:{n:'Золотой топор',s:1,t:1},gpick:{n:'Золотая кирка',s:1,t:1},gsword:{n:'Золотой меч',s:1,t:1}};
+const REC=[['plank',{wood:2},2],['bench',{plank:8}],['axe',{wood:3},1,'bench'],['pick',{wood:3},1,'bench'],['treat',{berry:2,seed:2,grass:1},3,'bench'],['sword',{wood:2},1,'bench'],['saxe',{wood:2,stone:3},1,'bench'],['spick',{wood:2,stone:3},1,'bench'],['ssword',{wood:1,stone:3,gel:1},1,'bench'],['salve',{grass:2,gel:1},1,'bench'],['rope',{grass:3},1,'bench'],['rod',{rope:2,plank:2},1,'bench'],['floor',{plank:1},2,'bench'],['wall',{plank:2},1,'bench'],['fence',{plank:1},2,'bench'],['door',{plank:3},1,'bench'],['bed',{plank:4,grass:3},1,'bench'],['chest',{plank:4},1,'bench'],['furnace',{stone:8,wood:2},1,'bench'],['window',{plank:2,stone:1},1,'bench'],['roof',{plank:2,grass:1},2,'bench'],['lamp',{plank:1,gel:2,stone:1},1,'bench'],['rug',{grass:4,gel:1},1,'bench'],['pot',{stone:2,grass:2},1,'bench'],['roast',{berry:2},1,'furnace'],['pie',{berry:3,grass:1},1,'furnace'],['msword',{wood:1,moon:4,copper:2,iron:2,icec:2,gold:2},1,'furnace'],['jam',{berry:4},1,'furnace'],['mushsoup',{mushroom:3,berry:1},1,'furnace'],['fishroast',{fish:2},1,'furnace'],['fishpie',{fish:1,mushroom:2,grass:1},1,'furnace'],['caxe',{wood:2,copper:3},1,'furnace'],['cpick',{wood:2,copper:3},1,'furnace'],['csword',{wood:1,copper:4,gel:2},1,'furnace'],['iaxe',{wood:2,iron:3,copper:1},1,'furnace'],['ipick',{wood:2,iron:3,copper:1},1,'furnace'],['isword',{wood:1,iron:4,copper:1},1,'furnace'],['kaxe',{wood:2,icec:3,iron:1},1,'furnace'],['kpick',{wood:2,icec:3,iron:1},1,'furnace'],['ksword',{wood:1,icec:4,iron:1,gel:3},1,'furnace'],['gaxe',{wood:2,gold:3,icec:1},1,'furnace'],['gpick',{wood:2,gold:3,icec:1},1,'furnace'],['gsword',{wood:1,gold:4,icec:1},1,'furnace']];
 const slots=Array(24).fill(null),$=i=>document.getElementById(i),qb=$('qb'),grid=$('grid'),craftEl=$('craft'),info=$('info'),panel=$('panel'),IU={};
 let sel=-1,isOpen=false,eq=null,demo=false,chest=null,drag=-1,benchOK=false;
 try{benchOK=localStorage.getItem('cw_bench')==='1'}catch(e){}
@@ -445,6 +456,9 @@ class Main extends Phaser.Scene{
   for(const [x,y] of GEN.S)reg(this.add.image(x,y,'rock').setOrigin(.5,1).setDepth(y),'stone',6,stoneZ(x,y));
   for(let n=0;n<34;n++){const x=100+r()*(W-200),y=150+r()*(H-250);if(nearPond(x,y,30)||nearRiver(x,y,30))continue;const bt=bio(x,y);if(bt==='snow')continue;reg(this.add.image(x,y,bt==='desert'?'dbush':'bush').setOrigin(.5,1).setDepth(y),bt==='desert'?'grass':'berry',1,null)}
   for(let n=0;n<160;n++){const x=80+r()*(W-160),y=100+r()*(H-180);if(nearPond(x,y,20)||nearRiver(x,y,20))continue;const bt=bio(x,y);if(bt==='desert')continue;reg(this.add.image(x,y,bt==='snow'?'stuft':bt==='forest'?'mush':'fl'+(n%3)).setOrigin(.5,1).setDepth(y),'grass',1,null)}
+  // ЭТАП 1: руды (медь — лес, железо — пустыня, ледяной кристалл — тундра)
+  {const ro=CR(901,-901,9);for(const [id,b0] of [['copper','forest'],['iron','desert'],['icec','snow']])for(let cl=0,t=0;cl<3&&t<400;t++){const px=120+ro()*(W-240),py=160+ro()*(H-300);if(bio(px,py)!==b0||!farSpawn(px,py,200)||nearPond(px,py,60)||nearRiver(px,py,60))continue;cl++;
+   for(let k=0,q=0;k<4&&q<14;q++){const x=px+(ro()-.5)*110,y=py+(ro()-.5)*80;if(bio(x,y)!==b0||nearPond(x,y,30)||nearRiver(x,y,30)||trees.some(p=>Math.hypot(p[0]-x,p[1]-y)<55))continue;k++;reg(this.add.image(x,y,oreTex(this,id)).setOrigin(.5,1).setDepth(y),'stone',8,stoneZ(x,y));const o=res[res.length-1];o.ore=id;o.need=OREDEF[id].need}}}
   // котик
   const c=this.cat=this.physics.add.image(SPAWN.x,SPAWN.y,'cat').setOrigin(.5,.85).setScale(.5).setCollideWorldBounds(true);
   c.body.setSize(48,28).setOffset(40,82);
@@ -529,13 +543,14 @@ class Main extends Phaser.Scene{
    }
   }
   hit(o){AU.sfx(o.type==='stone'?'mine':o.type==='wood'?'chop':'pick');
-  const c=this.cat,N={wood:o.cactus?'Кактус':'Дерево',stone:o.rare||o.dep?'Кристалл':'Камень',berry:'Ягоды',grass:'Трава'};
+  const c=this.cat,N={wood:o.cactus?'Кактус':'Дерево',stone:o.ore?ITEM[o.ore].n:(o.rare||o.dep?'Кристалл':'Камень'),berry:'Ягоды',grass:'Трава'};
   this.sw=c.flipX?-24:24;this.tweens.add({targets:this,sw:0,duration:220});
   this.tweens.add({targets:o.img,angle:{from:-5,to:0},duration:240});
-  const tier=({wood:{axe:1,saxe:2},stone:{pick:1,spick:2}}[o.type]||{})[eq]||0,big=o.type==='wood'||o.type==='stone';
+  const tier=({wood:TA,stone:TP}[o.type]||{})[eq]||0,big=o.type==='wood'||o.type==='stone';
   if(o.type==='stone'&&!tier){this.pop(o.x,o.y-60,'Нужна кирка');return}
+  if(o.need&&tier<o.need){this.pop(o.x,o.y-60,'Нужен инструмент более высокого уровня');return}
   if(big){o.hp-=1+tier;if(o.hp>0)return}
-  const n=big?(o.type==='wood'?3:2)+tier+(o.dep?2:0):1;if(!give(o.cactus?'cactus':(o.rare||o.dep?'crystal':o.type),n))this.pop(o.x,o.y-80,'Сумка полна');drawBag();
+  const n=big?(o.type==='wood'?3:2)+Math.min(tier,3)+(o.dep?2:0):1;if(!give(o.ore||(o.cactus?'cactus':(o.rare||o.dep?'crystal':o.type)),n))this.pop(o.x,o.y-80,'Сумка полна');drawBag();
   if(o.type==='grass'&&!o.cactus&&this.isNight&&Math.random()<.3&&give('glowshroom',1)){drawBag();this.pop(o.x,o.y-100,'+1 Светящийся гриб')}
   else if(o.type==='grass'&&!o.cactus&&Math.random()<.12&&give('mushroom',1)){drawBag();this.pop(o.x,o.y-100,'+1 Грибы')}
   if(o.type==='grass'&&!o.cactus&&Math.random()<.3&&give('seed',1)){drawBag();this.pop(o.x+16,o.y-84,'+1 Семечки')}
@@ -649,7 +664,7 @@ mkZone(o){const Z={wall:[32,12,8],window:[32,12,8],door:[32,12,8],fence:[32,10,8
   this.tweens.add({targets:m,scaleX:1.5,scaleY:.1,alpha:0,duration:k==='boss'?600:220,onComplete:()=>m.destroy()})}
  strike(m,rt){const c=rt&&this.rem?this.rem:this.cat,dx=m.x-c.x,dy=m.y-c.y,d=Math.hypot(dx,dy)||1;
   this.sw=c.flipX?-24:24;this.tweens.add({targets:this,sw:0,duration:220});
-  AU.sfx('hit');m.hp-=({sword:2,ssword:3,msword:4})[rt||eq]||1;m.setTintFill(0xffffff);this.time.delayedCall(90,()=>m.active&&m.clearTint());
+  AU.sfx('hit');m.hp-=({sword:2,ssword:3,csword:4,isword:5,msword:8,ksword:6,gsword:7})[rt||eq]||1;m.setTintFill(0xffffff);this.time.delayedCall(90,()=>m.active&&m.clearTint());
   m.setVelocity(dx/d*200,dy/d*200);m.stun=280;
   if(m.hp>0)return;
   m.dying=true;m.body.enable=false;this.mobDie(m,rt)}
@@ -1227,7 +1242,11 @@ const XC={ok:false,act:new Map(),q:[],pool:[],P:{},nk:'',big:true,
   if(R()<.3){const px=x0+120+R()*272,py=y0+120+R()*272;let k=3+Math.floor(R()*3);for(let t=0;t<12&&k>0;t++){const x=px+(R()-.5)*90,y=py+(R()-.5)*70,bt=bio(x,y);if(bad(x,y,30)||T.some(p=>Math.hypot(p[0]-x,p[1]-y)<60))continue;k--;add(x,y,({desert:'drock',snow:'srock'})[bt]||'rock','stone',9,[x,y-10,44,22],{dep:true})}}
   // кусты и цветы
   for(let t=0;t<3;t++){const x=x0+40+R()*432,y=y0+50+R()*420,bt=bio(x,y);if(bad(x,y,30)||bt==='snow')continue;add(x,y,bt==='desert'?'dbush':'bush',bt==='desert'?'grass':'berry',1,null)}
-  for(let t=0;t<11;t++){const x=x0+30+R()*452,y=y0+40+R()*440,bt=bio(x,y);if(bad(x,y,20)||bt==='desert')continue;add(x,y,bt==='snow'?'stuft':bt==='forest'?'mush':'fl'+(t%3),'grass',1,null)}},
+  for(let t=0;t<11;t++){const x=x0+30+R()*452,y=y0+40+R()*440,bt=bio(x,y);if(bad(x,y,20)||bt==='desert')continue;add(x,y,bt==='snow'?'stuft':bt==='forest'?'mush':'fl'+(t%3),'grass',1,null)}
+  {const RO=CR(cx,cy,17);
+   for(const [id,b0] of [['copper','forest'],['iron','desert'],['icec','snow']]){if(RO()>=.4)continue;const px=x0+100+RO()*312,py=y0+100+RO()*312;let k=3+Math.floor(RO()*3);for(let t=0;t<14&&k>0;t++){const x=px+(RO()-.5)*100,y=py+(RO()-.5)*80;if(bio(x,y)!==b0||bad(x,y,30)||T.some(p=>Math.hypot(p[0]-x,p[1]-y)<55))continue;k--;add(x,y,oreTex(sc,id),'stone',8,[x,y-10,44,22],{ore:id,need:OREDEF[id].need})}}
+   if((cx===CX0||cx===CX1||cy===CY0||cy===CY1)&&RO()<.6){const gx=cx===CX0?WX0+150:cx===CX1?WX1-150:x0+60+RO()*392,gy=cy===CY0?WY0+150:cy===CY1?WY1-150:y0+60+RO()*392;let k=2+Math.floor(RO()*2);for(let t=0;t<12&&k>0;t++){const x=gx+(RO()-.5)*110,y=gy+(RO()-.5)*110;if(GEN.sea(x,y,30)||XW.lakeAt(x,y,30)||XW.rivRaw(x,y,30))continue;k--;add(x,y,oreTex(sc,'gold'),'stone',10,[x,y-10,44,22],{ore:'gold',need:5})}}}
+ },
  drop(sc,k,ch){XC.act.delete(k);
   for(const o of ch.o){sc.cres.delete(o);if(sc.near===o)sc.near=null;o.img.destroy();if(o.z&&o.z.active)sc.walls.remove(o.z,true,true)}
   for(const f of ch.f)f.destroy();for(const z of ch.w)if(z.active)sc.walls.remove(z,true,true);
@@ -1464,4 +1483,109 @@ const VIL={hi:[],npcs:[],in:null,busy:false,fr:(()=>{try{return JSON.parse(local
   sc.time.delayedCall(250,()=>{sc.resetJump();c.setPosition(h.x,h.y+26);cam.setBackgroundColor(0);cam.setZoom(VIL.z0);cam.setBounds(WX0,WY0,WX1-WX0,WY1-WY0);cam.startFollow(c,true,.12,.12);cam.centerOn(c.x,c.y);
    sc.night.setVisible(true);sc.glowS.setVisible(true);h.n.inside=false;VIL.in=null;VIL.busy=false;sc.dead=false;cam.fadeIn(250,0,0,0)})}};
 </script>
-<script>(function(){const b=document.getElementById('mutebtn'),w=document.getElementById('mwav');if(!b||!w)return;const u=()=>b.classList.toggle('off',w.style.display==='none');b.addEventListener('click',()=>setTimeout(u,0));setTimeout(u,400);})();</script></body></html>
+<script>(function(){const b=document.getElementById('mutebtn'),w=document.getElementById('mwav');if(!b||!w)return;const u=()=>b.classList.toggle('off',w.style.display==='none');b.addEventListener('click',()=>setTimeout(u,0));setTimeout(u,400);})();</script><style>
+#cw2cal{right:66px!important}#cw2btn,#cw2cal{position:absolute;right:12px;top:206px;width:46px;height:46px;border-radius:12px;background:linear-gradient(#e0a866,#a8703a);border:3px solid #4d2f19;box-shadow:0 3px 0 #2a1d13;font-size:22px;display:flex;align-items:center;justify-content:center;padding:0;z-index:4;color:#fff}
+#cw2btn:active,#cw2cal:active{transform:translateY(2px);box-shadow:0 1px 0 #2a1d13}
+#cw2btn i{position:absolute;right:-4px;bottom:-7px;font:bold 11px/1 system-ui,sans-serif;background:#ffd36b;color:#4d2f19;border:2px solid #4d2f19;border-radius:8px;padding:1px 4px}
+#cw2btn.dot::before,#cw2cal.dot::before{content:'';position:absolute;left:-5px;top:-5px;width:11px;height:11px;border-radius:50%;background:#e0363c;border:2px solid #fff}
+#cw2{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);z-index:40}#mcal{right:calc(var(--vh)*3 + max(36px,calc(var(--vh)*9)) + 8px);font-size:20px;z-index:3}#mcal.dot::before{content:'';position:absolute;left:-3px;top:-3px;width:12px;height:12px;border-radius:50%;background:#e0363c;border:2px solid #fff}#minst{right:calc(var(--vh)*3 + (max(36px,calc(var(--vh)*9)) + 8px)*2)!important}
+#cw2[hidden]{display:none}
+#cw2 .bx{width:min(92%,520px);max-height:90%;display:flex;flex-direction:column;background:#fbe3bd;border:4px solid #8a5a30;border-radius:16px;box-shadow:0 5px 0 #4d2f19;color:#3b2c20;font:15px/1.3 system-ui,sans-serif;overflow:hidden}
+#cw2 .hd{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#e8bf82;border-bottom:3px solid #8a5a30}
+#cw2 .hd b{flex:1;font-size:17px}
+#cw2 .hd button,#cw2 .tb button,#cw2 .go2{font:bold 14px system-ui,sans-serif;color:#fff;text-shadow:0 1px 0 #4d2f19;background:linear-gradient(#c58a4a,#8a5a30);border:3px solid #4d2f19;border-radius:10px;box-shadow:0 3px 0 #2a1d13;padding:6px 12px;min-height:38px}
+#cw2 .tb{display:flex;gap:8px;padding:8px 10px 0}
+#cw2 .tb button{flex:1}#cw2 .tb button.on{background:linear-gradient(#ffd36b,#e0912f);color:#4d2f19;text-shadow:none}
+#cw2 .bd{padding:10px;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:none}
+#cw2 .go2:disabled{filter:grayscale(.8) brightness(.9);opacity:.7}
+#cw2 .od{display:flex;align-items:center;gap:10px;padding:8px;margin:0 0 8px;background:#fff3da;border:2px solid #b07d43;border-radius:10px;box-shadow:0 2px 0 #8a5a30}
+#cw2 .od img{width:40px;height:40px;flex:none}#cw2 .od .tx{flex:1;min-width:0}#cw2 .od small{display:block;color:#7a5a3a;font-size:13px}
+#cw2 .od.dn{opacity:.6;background:#dff0c8}
+#cw2 .nt{font-size:13px;color:#7a5a3a;margin:2px 0 8px}
+#cw2 .cl{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px;margin-bottom:10px}
+#cw2 .cd{padding:8px 6px;text-align:center;background:#fff3da;border:2px solid #b07d43;border-radius:10px;font-size:12.5px;min-height:78px}
+#cw2 .cd b{display:block;font-size:14px;margin-bottom:3px}
+#cw2 .cd.ok{background:#dff0c8;opacity:.7}#cw2 .cd.cur{border-color:#e0912f;box-shadow:0 0 0 3px #ffd36b;background:#fff0c0}
+#cw2t{position:absolute;left:50%;top:70px;transform:translateX(-50%);z-index:41;background:rgba(40,25,10,.92);color:#ffe7b0;padding:8px 14px;border-radius:10px;transition:opacity .3s;opacity:0;pointer-events:none;font:14px system-ui,sans-serif;max-width:80%;text-align:center}
+</style>
+<script>
+(()=>{try{
+const R=document.getElementById('root');if(!R)return;
+const g=id=>document.getElementById(id);
+const dkey=t=>{const d=new Date(t);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const sk=()=>'cw_s2_'+(MP.on?'mp_'+MP.code+'_'+MP.pid:'solo_'+(MP.solo||'x'));
+let S=null,K='';
+const def=()=>({v:1,coins:0,seen:0,ord:{d:'',t:[],all:0},cal:{n:0,last:''}});
+function load(){const k=sk();if(S&&K===k)return S;K=k;let o=null;try{o=JSON.parse(localStorage.getItem(k))}catch(e){}
+ S=Object.assign(def(),o&&typeof o==='object'?o:{});
+ if(!S.ord||!Array.isArray(S.ord.t))S.ord={d:'',t:[],all:0};
+ S.cal=Object.assign({n:0,last:''},S.cal&&typeof S.cal==='object'?S.cal:{});
+ S.coins=Math.max(0,S.coins|0);S.seen=+S.seen||0;return S}
+function save(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+function now(){load();const t=Math.max(Date.now(),S.seen||0);S.seen=t;return t}
+function rng(str){let h=1779033703^str.length;for(let i=0;i<str.length;i++){h=Math.imul(h^str.charCodeAt(i),3432918353);h=h<<13|h>>>19}let a=h>>>0;return()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const POOL=[
+ [['berry',10,25],['stone',8,25],['wood',10,25],['grass',12,20],['gel',4,30],['fish',1,30]],
+ [['copper',5,60],['mushroom',4,55],['crystal',2,70],['seed',6,45],['feather',4,50],['wool',3,50]],
+ [['gel',12,110],['iron',4,140],['icec',2,150],['glowshroom',3,120],['fish',4,110],['gold',1,200]]];
+const NAMES=['Простое','Среднее','Сложное'];
+const CAL=[{c:50},{i:[['crystal',2]]},{c:100},{i:[['wood',10],['stone',10],['berry',6]]},{c:100,i:[['lamp',1],['rug',1]]},{i:[['copper',3],['iron',1]]},{c:300,i:[['crystal',3],['moon',1]]}];
+function ensure(){const t=now(),d=dkey(t);if(S.ord.d!==d){S.ord={d,all:0,t:POOL.map((p,i)=>{const r=rng(d+'|'+K+'|'+i),e=p[Math.floor(r()*p.length)];return{id:e[0],n:e[1],c:e[2],b:i===2?['crystal',1]:null,done:0}})};save()}return S}
+function canGive(list){const cp=slots.map(s=>s&&{id:s.id,n:s.n});return list.every(([id,n])=>put(cp,id,n)===0)}
+function grant(list){for(const [id,n] of list)give(id,n)}
+let tt;function toast(m){let e=g('cw2t');if(!e){e=document.createElement('div');e.id='cw2t';R.appendChild(e)}e.textContent=m;e.style.opacity=1;clearTimeout(tt);tt=setTimeout(()=>{e.style.opacity=0},2400)}
+const nm=id=>ITEM[id]?ITEM[id].n:id;
+const rw=(c,items)=>[c?'🪙 '+c:'',...(items||[]).map(([id,n])=>nm(id)+' ×'+n)].filter(Boolean).join(' · ');
+function swallow(){try{AU.sfx('craft')}catch(e){}}
+function deliver(i){ensure();const o=S.ord.t[i];if(!o||o.done||cnt(o.id)<o.n)return;
+ const items=o.b?[o.b]:[];if(items.length&&!canGive(items))return toast('Сумка полна — освободите место');
+ take(o.id,o.n);o.done=1;S.coins+=o.c;let extra=0;
+ if(S.ord.t.every(x=>x.done)&&!S.ord.all){S.ord.all=1;S.coins+=50;extra=50}
+ save();grant(items);drawBag();swallow();toast('Заказ выполнен: +'+o.c+' 🪙'+(extra?' · бонус за все три: +50 🪙':''));render()}
+function claim(){ensure();if(!inGame())return toast('Награду можно забрать, зайдя в мир');const t=dkey(now());if(C().last===t)return;const r=CAL[C().n],items=r.i||[];
+ if(items.length&&!canGive(items))return toast('Сумка полна — освободите место');
+ C().last=t;C().n=(C().n+1)%7;S.coins+=r.c||0;save();saveC();grant(items);drawBag();swallow();toast('Награда получена: '+rw(r.c,items));render()}
+let CALS=null;
+function C(){load();if(!CALS){let o=null;try{o=JSON.parse(localStorage.getItem('cw_s2_cal'))}catch(e){}CALS=Object.assign({n:0,last:''},o&&typeof o==='object'?o:(S.cal&&(C().last||C().n)?S.cal:{}));CALS.n=((CALS.n|0)%7+7)%7}return CALS}
+function saveC(){try{localStorage.setItem('cw_s2_cal',JSON.stringify(CALS))}catch(e){}}
+const inGame=()=>{const m=g('menu');return !m||m.offsetParent===null};
+let tab='o',open=false,P=null;
+function mk(){if(P)return;P=document.createElement('div');P.id='cw2';P.hidden=true;
+ P.innerHTML="<div class='bx'><div class='hd'><b>📜 Заказы жителей</b><span id='cw2c'></span><button id='cw2x'>✕</button></div><div class='tb'><button data-t='o'>Заказы</button><button data-t='c'>Календарь</button></div><div class='bd' id='cw2b'></div></div>";
+ R.appendChild(P);
+ P.addEventListener('click',e=>{if(e.target===P)return setOpen(false);if(mv){mv=false;return}
+  const x=e.target.closest('#cw2x');if(x)return setOpen(false);
+  const t=e.target.closest('[data-t]');if(t){tab=t.dataset.t;render();return}
+  const d=e.target.closest('[data-d]');if(d&&!d.disabled)deliver(+d.dataset.d);
+  if(e.target.closest('#cw2cl')&&!e.target.closest('#cw2cl').disabled)claim()});
+ let dr=null,mv=false;const bd=g('cw2b');
+ bd.addEventListener('pointerdown',e=>{dr={id:e.pointerId,x:e.clientX,y:e.clientY};mv=false});
+ addEventListener('pointermove',e=>{if(!dr||e.pointerId!==dr.id)return;const sx=e.clientX-dr.x,sy=e.clientY-dr.y,d=R.classList.contains('rot')?-sx:sy;if(!mv&&Math.abs(d)<6)return;mv=true;bd.scrollTop-=d;dr.x=e.clientX;dr.y=e.clientY});
+ ['pointerup','pointercancel'].forEach(n=>addEventListener(n,()=>{dr=null}))}
+function setOpen(v){mk();open=v;P.hidden=!v;if(v)render()}
+function left(){const t=now(),d=new Date(t),ms=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1).getTime()-t;return Math.floor(ms/36e5)+' ч '+Math.floor(ms%36e5/6e4)+' мин'}
+function render(){if(!open)return;ensure();const ig=inGame();if(!ig)tab='c';P.querySelector('.tb').style.display=ig?'':'none';P.querySelector('.hd b').textContent=tab==='c'?'📅 Календарь':'📜 Заказы жителей';const b=g('cw2b'),st=b.scrollTop;
+ g('cw2c').textContent='🪙 '+S.coins;
+ P.querySelectorAll('.tb button').forEach(x=>x.classList.toggle('on',x.dataset.t===tab));
+ let h='';
+ if(tab==='o'){h+=`<div class='nt'>Новые заказы через ${left()}. Выполните все три — бонус 50 🪙.</div>`;
+  S.ord.t.forEach((o,i)=>{const have=cnt(o.id),ok=have>=o.n;
+   h+=`<div class='od${o.done?' dn':''}'>${ico(o.id)}<div class='tx'><b>${NAMES[i]}: ${nm(o.id)} ×${o.n}</b><small>В сумке: ${Math.min(have,o.n)}/${o.n} · Награда: ${rw(o.c,o.b?[o.b]:[])}</small></div>${o.done?'<b>✓</b>':`<button class='go2' data-d='${i}' ${ok?'':'disabled'}>Сдать</button>`}</div>`})}
+ else{const t=dkey(now()),can=C().last!==t&&ig;
+  h+=`<div class='nt'>Награда выдаётся раз в день. Пропуски ничего не сбрасывают.</div><div class='cl'>`;
+  CAL.forEach((r,i)=>{const cls=i<C().n?'ok':i===C().n?'cur':'';h+=`<div class='cd ${cls}'><b>День ${i+1}${i<C().n?' ✓':''}</b>${rw(r.c,r.i)}</div>`});
+  h+=`</div><button class='go2' id='cw2cl' style='width:100%' ${can?'':'disabled'}>${can?'Забрать награду дня':(C().last!==t?'Награду можно забрать в игре':'Сегодня уже получено')}</button>`}
+ b.innerHTML=h;b.scrollTop=st}
+const btn=document.createElement('button');btn.id='cw2btn';btn.className='sq';btn.title='Заказы';btn.innerHTML="📜<i id='cw2n'>0</i>";
+const cm=document.createElement('button');cm.id='mcal';cm.className='mi';cm.textContent='📅';cm.title='Календарь';
+cm.onclick=()=>{if(open)setOpen(false);else{tab='c';setOpen(true)}};(g('menu')||R).appendChild(cm);
+btn.onclick=()=>{if(open&&tab==='o')setOpen(false);else{tab='o';setOpen(true)}};R.appendChild(btn);
+const cb=document.createElement('button');cb.id='cw2cal';cb.className='sq';cb.title='Календарь';cb.innerHTML='📅';
+cb.onclick=()=>{if(open&&tab==='c')setOpen(false);else{tab='c';setOpen(true)}};R.appendChild(cb);
+setInterval(()=>{try{const bg=g('bagbtn');btn.style.display=cb.style.display=bg&&bg.offsetParent!==null?'':'none';ensure();
+ g('cw2n').textContent=S.coins;const t=dkey(now());
+ cb.classList.toggle('dot',C().last!==t);cm.classList.toggle('dot',C().last!==t);cm.style.display=inGame()?'none':'';btn.classList.toggle('dot',S.ord.t.some(o=>!o.done&&cnt(o.id)>=o.n));save();if(open)render()}catch(e){}},2000);
+window.CW2={coins:()=>(load(),S.coins),add(n){load();S.coins=Math.max(0,S.coins+(n|0));save();return S.coins},spend(n){load();n|=0;if(n<0||S.coins<n)return false;S.coins-=n;save();return true}};
+}catch(e){console.error('CW2',e)}})();
+</script>
+</body></html>
